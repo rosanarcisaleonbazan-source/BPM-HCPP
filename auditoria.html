@@ -1,37 +1,169 @@
-const CRITERIOS = {
-  sec1: [
-    {id:1, icon:'🧼', title:'Instalaciones cumplen con Buenas Prácticas de Manufactura (BPM)', hint:'Pisos, paredes, techos limpios, sin grietas, fáciles de limpiar y desinfectar.'},
-    {id:2, icon:'🚿', title:'Disponibilidad de agua potable y sistema de drenaje adecuado', hint:'Agua certificada y drenajes sin retorno ni acumulación.'},
-    {id:3, icon:'🧍‍♂️', title:'Higiene del personal adecuada', hint:'Uso de EPP, lavado de manos, uniforme limpio.'},
-    {id:4, icon:'🐀', title:'Programa de control de plagas implementado', hint:'Registros, monitoreo y acciones correctivas.'},
-    {id:5, icon:'🧴', title:'Programa de limpieza y desinfección documentado', hint:'Frecuencia, responsables y productos utilizados.'},
-    {id:6, icon:'🗑️', title:'Manejo adecuado de residuos', hint:'Separación, almacenamiento y disposición final.'},
-    {id:7, icon:'🌡️', title:'Control de temperatura en áreas críticas', hint:'Cámaras frigoríficas, almacenamiento y transporte.'},
-    {id:8, icon:'📋', title:'Registros de BPM actualizados', hint:'Se conservan registros mínimo 5 años.'},
-  ],
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Checklist Auditoría BPM/HACCP — Ecuador</title>
 
-  sec2: [
-    {id:9, icon:'⚠️', title:'Existe un plan HACCP documentado', hint:'Identificación de peligros biológicos, químicos y físicos.'},
-    {id:10, icon:'🔬', title:'Análisis de peligros correctamente realizado', hint:'Incluye evaluación de riesgos y medidas de control.'},
-    {id:11, icon:'🎯', title:'Identificación de Puntos Críticos de Control (PCC)', hint:'Determinación clara según árbol de decisiones.'},
-    {id:12, icon:'📏', title:'Límites críticos definidos para cada PCC', hint:'Ej. temperatura, tiempo, pH.'},
-    {id:13, icon:'📊', title:'Sistema de monitoreo de PCC implementado', hint:'Frecuencia, responsables y registros.'},
-    {id:14, icon:'🚨', title:'Acciones correctivas definidas y aplicadas', hint:'Cuando se pierde el control de un PCC.'},
-    {id:15, icon:'📑', title:'Verificación y validación del sistema HACCP', hint:'Auditorías, análisis microbiológicos, revisión del sistema.'},
-  ],
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  sec3: [
-    {id:16, icon:'🔄', title:'Actualización del plan HACCP ante cambios', hint:'Cambios en procesos, equipos o materias primas.'},
-    {id:17, icon:'🧪', title:'Programas de prerrequisitos (PPR) implementados', hint:'Incluye BPM, limpieza, control de plagas, etc.'},
-    {id:18, icon:'⚙️', title:'Mantenimiento preventivo de equipos', hint:'Registros y cronogramas actualizados.'},
-    {id:19, icon:'📡', title:'Monitoreo ambiental implementado', hint:'Superficies, aire, equipos.'},
-    {id:20, icon:'🌿', title:'Control de alérgenos', hint:'Identificación, segregación y etiquetado.'},
-    {id:21, icon:'👩‍🏫', title:'Capacitación del personal en BPM y HACCP', hint:'Registros de formación continua.'},
-  ],
+<style>
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:#f5f5f0;
+  padding:20px;
+}
+h1{text-align:center}
 
-  sec4: [
-    {id:22, icon:'🔬', title:'Evaluación de riesgos en el proceso cárnico', hint:'Incluye recepción, faenamiento, almacenamiento.'},
-    {id:23, icon:'🔁', title:'Revisión periódica del sistema HACCP', hint:'Al menos una vez al año o ante cambios.'},
-    {id:24, icon:'✔️', title:'Verificación de limpieza antes de producción', hint:'Inspección y registros previos al inicio de operaciones.'},
-  ]
-};
+.check-item{
+  background:#fff;
+  border-radius:10px;
+  padding:15px;
+  margin-bottom:10px;
+  border-left:5px solid #ccc;
+}
+.ci-cumple{border-left-color:green}
+.ci-no{border-left-color:red}
+.ci-na{border-left-color:gray}
+
+.btn{
+  padding:6px 10px;
+  border:1px solid #ccc;
+  cursor:pointer;
+  margin-right:5px;
+}
+.active-C{background:#d4edda}
+.active-N{background:#f8d7da}
+.active-NA{background:#eee}
+
+.score{
+  background:#fff;
+  padding:15px;
+  margin-bottom:20px;
+  border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Auditoría BPM / HACCP<br>Plantas de Alimentos · Ecuador</h1>
+
+<div class="score">
+  <b>Cumple:</b> <span id="c">0</span> |
+  <b>No Cumple:</b> <span id="n">0</span> |
+  <b>N/A:</b> <span id="na">0</span> |
+  <b>%:</b> <span id="pct">0%</span>
+</div>
+
+<div id="app"></div>
+
+<script>
+
+const CRITERIOS = [
+/* INSTALACIONES */
+{sec:"A - Instalaciones",t:"Instalaciones en buen estado"},
+{sec:"A - Instalaciones",t:"Flujo evita contaminación cruzada"},
+{sec:"A - Instalaciones",t:"Iluminación y ventilación adecuadas"},
+
+/* PERSONAL */
+{sec:"B - Personal",t:"Uso correcto de EPP"},
+{sec:"B - Personal",t:"Lavado de manos adecuado"},
+{sec:"B - Personal",t:"Personal capacitado en BPM"},
+
+/* LIMPIEZA */
+{sec:"C - Limpieza",t:"Programa de limpieza documentado"},
+{sec:"C - Limpieza",t:"Uso correcto de desinfectantes"},
+{sec:"C - Limpieza",t:"Registros de limpieza actualizados"},
+
+/* PLAGAS */
+{sec:"D - Plagas",t:"Control de plagas implementado"},
+{sec:"D - Plagas",t:"Sin evidencia de infestación"},
+
+/* HACCP */
+{sec:"E - HACCP",t:"Análisis de peligros documentado"},
+{sec:"E - HACCP",t:"Puntos críticos identificados (CCP)"},
+{sec:"E - HACCP",t:"Límites críticos definidos"},
+{sec:"E - HACCP",t:"Monitoreo de CCP registrado"},
+
+/* PROCESOS */
+{sec:"F - Procesos",t:"Control de temperatura"},
+{sec:"F - Procesos",t:"Trazabilidad del producto"},
+{sec:"F - Procesos",t:"Control de materia prima"},
+
+/* DOCUMENTACIÓN */
+{sec:"G - Documentos",t:"Registros completos y firmados"},
+{sec:"G - Documentos",t:"Cumple normativa ARCSA"},
+{sec:"G - Documentos",t:"Procedimientos actualizados"},
+];
+
+let state = {};
+
+function render(){
+  const app = document.getElementById("app");
+  app.innerHTML="";
+
+  let actual="";
+
+  CRITERIOS.forEach((c,i)=>{
+    state[i]="none";
+
+    if(c.sec!==actual){
+      actual=c.sec;
+      const h=document.createElement("h3");
+      h.textContent="Sección "+c.sec;
+      app.appendChild(h);
+    }
+
+    const div=document.createElement("div");
+    div.className="check-item";
+    div.id="item-"+i;
+
+    div.innerHTML=`
+      <b>${c.t}</b><br><br>
+      <button class="btn" onclick="setVal(${i},'C')">Cumple</button>
+      <button class="btn" onclick="setVal(${i},'N')">No Cumple</button>
+      <button class="btn" onclick="setVal(${i},'NA')">N/A</button>
+    `;
+
+    app.appendChild(div);
+  });
+}
+
+function setVal(i,val){
+  state[i]=val;
+
+  const el=document.getElementById("item-"+i);
+  el.classList.remove("ci-cumple","ci-no","ci-na");
+
+  if(val==="C") el.classList.add("ci-cumple");
+  if(val==="N") el.classList.add("ci-no");
+  if(val==="NA") el.classList.add("ci-na");
+
+  update();
+}
+
+function update(){
+  let c=0,n=0,na=0;
+
+  Object.values(state).forEach(v=>{
+    if(v==="C") c++;
+    if(v==="N") n++;
+    if(v==="NA") na++;
+  });
+
+  let aplica = c+n;
+  let pct = aplica>0 ? Math.round((c/aplica)*100) : 0;
+
+  document.getElementById("c").textContent=c;
+  document.getElementById("n").textContent=n;
+  document.getElementById("na").textContent=na;
+  document.getElementById("pct").textContent=pct+"%";
+}
+
+render();
+
+</script>
+
+</body>
+</html>

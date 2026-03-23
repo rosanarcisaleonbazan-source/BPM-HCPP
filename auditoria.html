@@ -153,19 +153,18 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
 </html>
 
 
-
 <div class="machine-card">
   <div class="card-header">
-    <div style="background:var(--g50);padding:8px;border-radius:8px">📋</div>
+    <div style="background:var(--g50);padding:8px;border-radius:8px">📜</div>
     <div>
-      <h2 style="font-size:16px">1. Control de Inspección y Datos Legales</h2>
-      <p style="font-size:12px;color:var(--gray600)">Información obligatoria para certificación de BPM</p>
+      <h2 style="font-size:16px">1. Información de Control y Base Legal</h2>
+      <p style="font-size:11px;color:var(--g700);font-weight:700">NORMATIVA: ARCSA-DE-002-2024-JCGO / AGROCALIDAD</p>
     </div>
   </div>
 
   <div class="form-grid">
     <div class="fgroup">
-      <label>📅 Fecha (Día/Mes/Año)</label>
+      <label>📅 Fecha de Auditoría</label>
       <input class="finput" type="date">
     </div>
     <div class="fgroup">
@@ -180,8 +179,8 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
 
   <div class="form-grid" style="margin-top:15px">
     <div class="fgroup">
-      <label>🏢 Razón Social / Nombre</label>
-      <input class="finput" type="text" placeholder="Ej. Industria Cárnica S.A.">
+      <label>🏢 Razón Social (Según RUC)</label>
+      <input class="finput" type="text" placeholder="Ej. Corporación Cárnica Ec v2024">
     </div>
     <div class="fgroup">
       <label>🆔 RUC (13 dígitos)</label>
@@ -193,115 +192,93 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
     </div>
   </div>
 
-  <div class="form-grid" style="margin-top:15px; background:var(--gray50); padding:10px; border-radius:8px">
+  <div class="form-grid" style="margin-top:15px; background:var(--gray50); padding:12px; border-radius:8px">
     <div class="fgroup">
-      <label>🧾 Número de Factura</label>
-      <input class="finput" type="text" placeholder="001-001-000000XXX">
+      <label>🧾 N° Factura (Tasa Inspección)</label>
+      <input class="finput" type="text">
     </div>
     <div class="fgroup">
       <label>💵 Valor Factura + IVA</label>
-      <input class="finput" type="text" placeholder="USD">
+      <input class="finput" type="text">
     </div>
     <div class="fgroup">
-      <label>📧 Correo Electrónico</label>
-      <input class="finput" type="email" placeholder="institucional@correo.com">
+      <label>🛡️ Motivo (Auditoría 2024)</label>
+      <select class="fselect">
+        <option>Emisión por primera vez (BPM)</option>
+        <option>Renovación de Certificación</option>
+        <option>Ampliación de Línea</option>
+        <option>Seguimiento Post-Registro</option>
+      </select>
     </div>
   </div>
 
   <div class="card-header" style="margin-top:25px">
     <div style="background:var(--t100);padding:8px;border-radius:8px">📍</div>
     <div>
-      <h2 style="font-size:16px">2. Ubicación y Georreferenciación</h2>
+      <h2 style="font-size:16px">2. Ubicación y Georreferenciación (Ecuador)</h2>
     </div>
   </div>
 
   <div class="form-grid">
     <div class="fgroup">
       <label>🗺️ Provincia / Cantón / Parroquia</label>
-      <input class="finput" type="text" placeholder="Pichincha / Quito / ...">
+      <input class="finput" type="text" placeholder="Ej. Pichincha / Quito / Quitumbe">
     </div>
     <div class="fgroup">
-      <label>📡 Coordenada X (Longitud)</label>
-      <input class="finput" type="text" placeholder="0.000000">
+      <label>📡 Coordenadas (X / Y)</label>
+      <input class="finput" type="text" placeholder="X: _______  Y: _______">
     </div>
     <div class="fgroup">
-      <label>📡 Coordenada Y (Latitud)</label>
-      <input class="finput" type="text" placeholder="0.000000">
+      <label>⛰️ Altura (m.s.n.m.)</label>
+      <input class="finput" type="number" placeholder="Ej. 2850">
     </div>
-  </div>
-  <div class="fgroup" style="margin-top:10px">
-    <label>🏠 Dirección Exacta</label>
-    <input class="finput" type="text" placeholder="Calle principal, número y cruce">
   </div>
 
   <div class="card-header" style="margin-top:25px">
     <div style="background:var(--g50);padding:8px;border-radius:8px">🥩</div>
     <div>
-      <h2 style="font-size:16px">3. Información Técnica y Capacidad</h2>
+      <h2 style="font-size:16px">3. Datos Técnicos y Perfil de Riesgo</h2>
     </div>
   </div>
 
   <div class="form-grid">
     <div class="fgroup">
-      <label>🏗️ Categoría MIPYME</label>
-      <div class="tipo-btns">
-        <button class="tipo-btn">Micro</button>
-        <button class="tipo-btn">Pequeña</button>
-        <button class="tipo-btn">Mediana</button>
-        <button class="tipo-btn">Grande</button>
-      </div>
+      <label>🏗️ Categoría Empresa</label>
+      <select class="fselect">
+        <option>Artesanal / Micro</option>
+        <option>Pequeña / Mediana</option>
+        <option>Grande Empresa</option>
+      </select>
     </div>
     <div class="fgroup">
-      <label>⚙️ Capacidad Instalada</label>
-      <input class="finput" type="text" placeholder="Ej: 50 bovinos/día">
+      <label>⚠️ Nivel de Riesgo (ARCSA 002)</label>
+      <input class="finput" type="text" value="ALTO (Cárnicos)" readonly style="background:#fff1f2; color:#991b1b; font-weight:bold">
     </div>
     <div class="fgroup">
-      <label>📏 Superficie Total (m²)</label>
-      <input class="finput" type="number">
+      <label>📏 Superficie / Capacidad</label>
+      <input class="finput" type="text" placeholder="m² / animales día">
     </div>
   </div>
 
   <div class="card-header" style="margin-top:25px">
     <div style="background:var(--g50);padding:8px;border-radius:8px">👨‍🔬</div>
     <div>
-      <h2 style="font-size:16px">4. Responsables Técnicos (SENESCYT)</h2>
+      <h2 style="font-size:16px">4. Responsables Técnicos (Validación SENESCYT)</h2>
     </div>
   </div>
 
-  <div class="form-grid-2">
-    <div style="border:1px solid var(--gray200); padding:12px; border-radius:8px">
-      <p style="font-size:11px; font-weight:800; color:var(--g700); margin-bottom:8px">RESPONSABLE PRINCIPAL</p>
-      <div class="fgroup">
-        <label>Nombre y Apellido</label>
-        <input class="finput" type="text">
-      </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px">
-        <div class="fgroup">
-          <label>Reg. SENESCYT</label>
-          <input class="finput" type="text">
-        </div>
-        <div class="fgroup">
-          <label>¿Presente?</label>
-          <select class="fselect"><option>Sí</option><option>No</option></select>
-        </div>
-      </div>
+  <div class="form-grid">
+    <div class="fgroup">
+      <label>👤 Nombre Responsable Técnico</label>
+      <input class="finput" type="text">
     </div>
-    <div style="border:1px solid var(--gray200); padding:12px; border-radius:8px">
-      <p style="font-size:11px; font-weight:800; color:var(--gray600); margin-bottom:8px">RESPONSABLE SECUNDARIO</p>
-      <div class="fgroup">
-        <label>Nombre y Apellido</label>
-        <input class="finput" type="text">
-      </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px">
-        <div class="fgroup">
-          <label>Reg. SENESCYT</label>
-          <input class="finput" type="text">
-        </div>
-        <div class="fgroup">
-          <label>¿Presente?</label>
-          <select class="fselect"><option>No</option><option>Sí</option></select>
-        </div>
-      </div>
+    <div class="fgroup">
+      <label>📜 Registro SENESCYT</label>
+      <input class="finput" type="text">
+    </div>
+    <div class="fgroup">
+      <label>📞 Contacto Móvil / Email</label>
+      <input class="finput" type="text">
     </div>
   </div>
 </div>

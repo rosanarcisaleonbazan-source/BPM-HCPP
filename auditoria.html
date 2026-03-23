@@ -203,187 +203,96 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
 
 
 
-
-  <style>
-  /* Estilos específicos para la tabla de evaluación */
-  .eval-row {
-    background: white;
-    border-bottom: 1px solid var(--gray200);
-    padding: 15px;
-    display: grid;
-    grid-template-columns: 40px 1fr 100px 180px;
-    align-items: center;
-    gap: 15px;
-  }
-  .eval-header {
-    background: var(--g900);
-    color: white;
-    font-weight: 700;
-    font-size: 11px;
-    text-transform: uppercase;
-    padding: 10px 15px;
-    display: grid;
-    grid-template-columns: 40px 1fr 100px 180px;
-    gap: 15px;
-    border-radius: 8px 8px 0 0;
-  }
-  .badge {
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 800;
-    text-align: center;
-  }
-  .badge-i { background: #fee2e2; color: #991b1b; border: 1px solid #ef4444; } /* Imprescindible */
-  .badge-nec { background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; } /* Necesario */
-  .badge-inf { background: #dbeafe; color: #1e40af; border: 1px solid #3b82f6; } /* Informativo */
-
-  .btn-check {
-    display: flex;
-    background: var(--gray100);
-    border-radius: 6px;
-    padding: 2px;
-    border: 1px solid var(--gray200);
-  }
-  .btn-check button {
-    flex: 1;
-    border: none;
-    padding: 6px;
-    font-size: 10px;
-    font-weight: 700;
-    cursor: pointer;
-    background: transparent;
-    border-radius: 4px;
-  }
-  .btn-check button.active-c { background: var(--g500); color: white; }
-  .btn-check button.active-nc { background: #ef4444; color: white; }
-</style>
-
-<div class="machine-card" style="margin-top:25px; padding:0; overflow:hidden;">
-  <div style="padding: 20px;">
-    <h2 style="font-size:16px">Sección I: Instalaciones Fisicas y Edificación</h2>
-    <p style="font-size:12px; color:var(--gray600)">Evaluación de riesgos según importancia del ítem</p>
-  </div>
-
-  <div class="eval-header">
-    <div>N°</div>
-    <div>Criterio de Verificación</div>
-    <div>Importancia</div>
-    <div>Calificación</div>
-  </div>
-
-  <div class="eval-row">
-    <div style="font-weight: 700; color: var(--gray600)">1.1</div>
-    <div style="font-size: 13px;">
-      ¿El establecimiento está ubicado en un lugar alejado de focos de insalubridad o contaminación?
-    </div>
-    <div><span class="badge badge-i">I (CRÍTICO)</span></div>
-    <div class="btn-check">
-      <button class="active-c">C</button>
-      <button>NC</button>
-      <button>N/A</button>
-    </div>
-  </div>
-
-  <div class="eval-row">
-    <div style="font-weight: 700; color: var(--gray600)">1.2</div>
-    <div style="font-size: 13px;">
-      ¿Las áreas de recepción de animales están techadas y limpias?
-    </div>
-    <div><span class="badge badge-nec">NEC (GRAVE)</span></div>
-    <div class="btn-check">
-      <button>C</button>
-      <button class="active-nc">NC</button>
-      <button>N/A</button>
-    </div>
-  </div>
-
-  <div class="eval-row">
-    <div style="font-weight: 700; color: var(--gray600)">1.3</div>
-    <div style="font-size: 13px;">
-      ¿Existen letreros indicativos de las diferentes áreas de la planta?
-    </div>
-    <div><span class="badge badge-inf">INF (MENOR)</span></div>
-    <div class="btn-check">
-      <button>C</button>
-      <button>NC</button>
-      <button>N/A</button>
-    </div>
+<div class="machine-card" style="margin-top:20px; border-left: 5px solid var(--g900)">
+  <div style="padding:15px">
+    <h3 style="font-size:14px; color:var(--g900); margin-bottom:10px">⚠️ CLASIFICACIÓN DEL CRITERIO DE EVALUACIÓN</h3>
+    <p style="font-size:12px; color:var(--gray600); margin-bottom:15px">
+      Se basa en el riesgo potencial inherente de cada ítem en relación a la calidad y seguridad del producto y del trabajador.
+    </p>
+    
+    <table style="width:100%; border-collapse: collapse; font-size:11px; text-align:left;">
+      <thead>
+        <tr style="background:var(--gray100)">
+          <th style="padding:8px; border:1px solid #ddd">Criterio</th>
+          <th style="padding:8px; border:1px solid #ddd">Descripción</th>
+          <th style="padding:8px; border:1px solid #ddd">Deficiencia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:8px; border:1px solid #ddd"><span class="badge badge-i">IMPRESCINDIBLE (I)</span></td>
+          <td style="padding:8px; border:1px solid #ddd">Ítem que puede influir en grado crítico.</td>
+          <td style="padding:8px; border:1px solid #ddd; color:#dc2626; font-weight:700">CRÍTICO</td>
+        </tr>
+        <tr>
+          <td style="padding:8px; border:1px solid #ddd"><span class="badge badge-nec" style="background:#fef3c7; color:#92400e; border:1px solid #f59e0b">NECESARIO (NEC)</span></td>
+          <td style="padding:8px; border:1px solid #ddd">Ítem que influye en grado menor, pero importante.</td>
+          <td style="padding:8px; border:1px solid #ddd; color:#d97706; font-weight:700">GRAVE</td>
+        </tr>
+        <tr>
+          <td style="padding:8px; border:1px solid #ddd"><span class="badge badge-inf">INFORMATIVO (INF)</span></td>
+          <td style="padding:8px; border:1px solid #ddd">Ítem que presenta información descriptiva.</td>
+          <td style="padding:8px; border:1px solid #ddd; color:#2563eb; font-weight:700">MENOR</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
-
-
-
-
-
-
-
 <style>
-  .btn-check {
+  /* ESTILOS PARA QUE LOS BOTONES SEAN SELECCIONABLES (CORREGIDO) */
+  .btn-check-group {
     display: flex;
-    gap: 2px;
     background: #f3f4f6;
     padding: 3px;
     border-radius: 8px;
     border: 1px solid #d1d5db;
+    gap: 2px;
   }
   
-  /* Escondemos el radio button real pero dejamos su etiqueta */
-  .btn-check input[type="radio"] {
-    display: none;
+  .btn-check-group input[type="radio"] {
+    display: none; /* Escondemos el radio button feo */
   }
 
-  .btn-check label {
+  .btn-check-group label {
     flex: 1;
-    padding: 6px 10px;
+    padding: 6px;
     cursor: pointer;
     border-radius: 6px;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 800;
     text-align: center;
-    transition: all 0.2s;
     color: #4b5563;
+    transition: 0.2s;
   }
 
-  /* Colores cuando se selecciona cada opción */
-  .btn-check input[value="SI"]:checked + label { background: #10b981; color: white; }
-  .btn-check input[value="NO"]:checked + label { background: #ef4444; color: white; }
-  .btn-check input[value="NA"]:checked + label { background: #6b7280; color: white; }
+  /* Colores al seleccionar */
+  .btn-check-group input[value="SI"]:checked + label { background: #10b981; color: white; }
+  .btn-check-group input[value="NO"]:checked + label { background: #ef4444; color: white; }
+  .btn-check-group input[value="NA"]:checked + label { background: #6b7280; color: white; }
 
-  .finput-obs {
+  .finput-justificar {
     width: 100%;
     margin-top: 5px;
     padding: 6px;
     border: 1px solid #d1d5db;
     border-radius: 6px;
-    font-size: 11px;
-    outline: none;
+    font-size: 10px;
+    background: #fff;
   }
-  
-  .finput-obs:focus { border-color: #2563eb; background: #fff; }
 </style>
 
-<div class="eval-row" style="display: grid; grid-template-columns: 40px 1fr 80px 220px; align-items: start; gap: 15px; padding: 15px; border-bottom: 1px solid #eee;">
-  <div style="font-weight: bold;">1</div>
-  <div style="font-size: 13px;">
-    <b>Localización y alrededores:</b><br>
-    <span style="color: #666;">Verificar que el establecimiento esté libre de focos de insalubridad y vías pavimentadas.</span>
-  </div>
-  <div><span class="badge badge-i">IMP</span></div>
-  
+<div class="eval-row" style="display: grid; grid-template-columns: 40px 1fr 100px 200px; gap:15px; padding:15px; border-bottom:1px solid #eee; align-items: start;">
+  <div style="font-weight:bold">1.1</div>
+  <div style="font-size:12px"><b>Instalaciones Eléctricas:</b> Protegidas y empotradas.</div>
+  <div><span class="badge badge-nec" style="background:#fef3c7; color:#92400e; border:1px solid #f59e0b">NEC</span></div>
   <div class="column-calif">
-    <div class="btn-check">
-      <input type="radio" name="item1" id="i1-si" value="SI">
-      <label for="i1-si">SI</label>
-      
-      <input type="radio" name="item1" id="i1-no" value="NO">
-      <label for="i1-no">NO</label>
-      
-      <input type="radio" name="item1" id="i1-na" value="NA">
-      <label for="i1-na">N/A</label>
+    <div class="btn-check-group">
+      <input type="radio" name="r1" id="r1-si" value="SI"><label for="r1-si">SI</label>
+      <input type="radio" name="r1" id="r1-no" value="NO"><label for="r1-no">NO</label>
+      <input type="radio" name="r1" id="r1-na" value="NA"><label for="r1-na">N/A</label>
     </div>
-    <input type="text" class="finput-obs" placeholder="Justificación / Observaciones...">
+    <input type="text" class="finput-justificar" placeholder="N/A (Justificar)...">
   </div>
 </div>
-</style>
+

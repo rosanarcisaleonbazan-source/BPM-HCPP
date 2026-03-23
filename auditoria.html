@@ -311,3 +311,137 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="machine-card" style="margin-top:25px; padding:0; overflow:hidden;">
+  <div style="padding: 20px; background: var(--g900); color: white;">
+    <h2 style="font-size:16px; margin:0">BLOQUE I: DOCUMENTOS HABILITANTES</h2>
+  </div>
+
+  <div class="eval-header">
+    <div>No.</div>
+    <div>Afirmación / Criterio de Cumplimiento</div>
+    <div>Criterio</div>
+    <div>Calificación</div>
+  </div>
+
+  <div class="eval-row">
+    <div>1</div>
+    <div style="font-size: 13px;">
+      <b>Documentos reglamentarios:</b> Uso de suelo, medio ambiente, bomberos/LUAE, contrato de arrendamiento.
+    </div>
+    <div><span class="badge badge-inf">INF</span></div>
+    <div class="column-calif">
+      <div class="btn-check">
+        <button>SI</button><button>NO</button><button>N/A</button>
+      </div>
+      <input type="text" class="finput-obs" placeholder="Justificar si es N/A...">
+    </div>
+  </div>
+
+  <div class="eval-row">
+    <div>2</div>
+    <div style="font-size: 13px;">
+      <b>Registro Sistema Guía:</b> Verificar registro correcto y declaración completa de áreas y sitios.
+    </div>
+    <div><span class="badge badge-i">IMP</span></div>
+    <div class="column-calif">
+      <div class="btn-check">
+        <button>SI</button><button>NO</button><button>N/A</button>
+      </div>
+      <input type="text" class="finput-obs" placeholder="Justificar si es N/A...">
+    </div>
+  </div>
+
+  <div class="eval-row">
+    <div>3</div>
+    <div style="font-size: 13px;">
+      <b>Responsable Técnico:</b> Título acorde (MVZ, Ing. Alimentos, etc.) y contrato de trabajo.
+    </div>
+    <div><span class="badge badge-i">IMP</span></div>
+    <div class="column-calif">
+      <div class="btn-check">
+        <button>SI</button><button>NO</button><button>N/A</button>
+      </div>
+      <input type="text" class="finput-obs" placeholder="Justificar si es N/A...">
+    </div>
+  </div>
+</div>
+
+<div class="machine-card" style="margin-top:25px; padding:0; overflow:hidden;">
+  <div style="padding: 20px; background: #2563eb; color: white;">
+    <h2 style="font-size:16px; margin:0">BLOQUE II: FUNCIONAMIENTO GENERAL DE LA PLANTA</h2>
+  </div>
+
+  <div class="eval-header">
+    <div>No.</div>
+    <div>Afirmación / Criterio de Cumplimiento</div>
+    <div>Criterio</div>
+    <div>Calificación</div>
+  </div>
+
+  <div class="eval-row">
+    <div>1</div>
+    <div style="font-size: 13px;"><b>Organigrama:</b> Actualizado, con fechas y firmas de aprobación.</div>
+    <div><span class="badge badge-inf">INF</span></div>
+    <div class="column-calif">
+      <div class="btn-check"><button>SI</button><button>NO</button><button>N/A</button></div>
+      <input type="text" class="finput-obs" placeholder="Justificar...">
+    </div>
+  </div>
+
+  <div class="eval-row">
+    <div>4</div>
+    <div style="font-size: 13px;"><b>Lista de productos con registro:</b> Inventario vs productos comercializados.</div>
+    <div><span class="badge badge-i">IMP</span></div>
+    <div class="column-calif">
+      <div class="btn-check"><button>SI</button><button>NO</button><button>N/A</button></div>
+      <input type="text" class="finput-obs" placeholder="Justificar...">
+    </div>
+  </div>
+
+  <div class="eval-row">
+    <div>9</div>
+    <div style="font-size: 13px;"><b>Documentos BPM:</b> Divulgación, capacitaciones, registros y POES.</div>
+    <div><span class="badge badge-i">IMP</span></div>
+    <div class="column-calif">
+      <div class="btn-check"><button>SI</button><button>NO</button><button>N/A</button></div>
+      <input type="text" class="finput-obs" placeholder="Justificar...">
+    </div>
+  </div>
+</div>
+
+<style>
+  .column-calif { display: flex; flex-direction: column; gap: 5px; }
+  .finput-obs { 
+    font-size: 10px; 
+    padding: 4px; 
+    border: 1px solid var(--gray200); 
+    border-radius: 4px;
+    background: #f9fafb;
+  }
+  .eval-row {
+    display: grid;
+    grid-template-columns: 40px 1fr 100px 220px; /* Ajustado para el campo de texto */
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+  }
+  .eval-header {
+    display: grid;
+    grid-template-columns: 40px 1fr 100px 220px;
+    padding: 10px 15px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+</style>

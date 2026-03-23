@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoría BPM/HACCP — Plantas Procesadoras de Alimentos | Ecuador</title>
+<meta name="description" content="Sistema integral de auditoría interna para Buenas Prácticas de Manufactura (BPM) y HACCP en plantas procesadoras de alimentos en Ecuador. Normativa ARCSA, INEN, Código de Salud.">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* NUEVA PALETA: Colores profesionales para Ecuador/Alimentos */
+  --azul-marino: #0f4c75;
+  --azul-claro: #1675b8;
+  --azul-cielo: #2fa5d6;
+  --azul-soft: #d4e8f7;
+  --azul-muy-soft: #eef5fb;
+  
+  --naranja-tierra: #d4651c;
+  --naranja-claro: #e8844f;
+  --naranja-soft: #fde8d4;
+  --naranja-muy-soft: #fff5ed;
+  
+  --verde-bosque: #1b5e3f;
+  --verde-medio: #2d8659;
+  --verde-claro: #5db075;
+  --verde-soft: #d4ead8;
+  --verde-muy-soft: #e8f5eb;
+  
+  --rojo-critico: #c02929;
+  --rojo-claro: #e84c3d;
+  --rojo-soft: #fde4e1;
+  --rojo-muy-soft: #fff0ed;
+  
+  --gris-oscuro: #2c3e50;
+  --gris-medio: #5a6c7d;
+  --gris-claro: #a8b4c1;
+  --gris-muy-claro: #e8eef5;
+  --gris-fondo: #f5f7fa;
+  
+  --white: #ffffff;
+  --font: 'Plus Jakarta Sans', sans-serif;
+  --sh: 0 2px 16px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.05);
+  --sh-md: 0 6px 32px rgba(0,0,0,.11), 0 2px 8px rgba(0,0,0,.07);
+  --sh-lg: 0 12px 48px rgba(0,0,0,.14), 0 4px 14px rgba(0,0,0,.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--gris-fondo); color: var(--gris-oscuro); line-height: 1.5; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  background: linear-gradient(135deg, var(--azul-marino) 0%, var(--azul-claro) 100%);
+  backdrop-filter: blur(12px);
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 2px 20px rgba(0,0,0,.15);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  gap: 16px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-ic {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--naranja-tierra) 0%, var(--naranja-claro) 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+}
+.nav-logo span {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: .01em;
+}
+.nav-logo small {
+  font-size: 10.5px;
+  color: var(--azul-soft);
+  font-weight: 500;
+  display: block;
+  margin-top: -2px;
+}
+.nav-links { display: flex; gap: 6px; align-items: center; }
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,.75);
+  transition: all .15s;
+  white-space: nowrap;
+}
+.nav-link:hover {
+  background: rgba(255,255,255,.12);
+  color: #fff;
+}
+.nav-pill {
+  background: linear-gradient(135deg, var(--naranja-tierra), var(--naranja-claro));
+  color: #fff;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .15s;
+  white-space: nowrap;
+}
+.nav-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(212, 101, 28, .35);
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(140deg, var(--azul-marino) 0%, var(--azul-claro) 35%, var(--verde-bosque) 75%, var(--verde-medio) 100%);
+  padding: 90px 40px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+}
+.hero-orb1 {
+  position: absolute;
+  right: -120px;
+  top: -120px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 101, 28, .15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-orb2 {
+  position: absolute;
+  left: -80px;
+  bottom: -80px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(45, 134, 89, .12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.1);
+  border: 1.5px solid rgba(255,255,255,.2);
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero-badge::before {
+  content: '🇪🇨';
+  font-size: 16px;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.12;
+  margin-bottom: 20px;
+  max-width: 760px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--naranja-claro);
+  text-shadow: 0 2px 8px rgba(212, 101, 28, .3);
+}
+.hero p {
+  font-size: 16px;
+  color: rgba(255,255,255,.85);
+  line-height: 1.7;
+  max-width: 620px;
+  margin-bottom: 36px;
+}
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .18s;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font);
+}
+.hb-primary {
+  background: linear-gradient(135deg, var(--naranja-tierra), var(--naranja-claro));
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(212, 101, 28, .35);
+}
+.hb-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(212, 101, 28, .45);
+}
+.hb-outline {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,.3);
+}
+.hb-outline:hover {
+  background: rgba(255,255,255,.18);
+  transform: translateY(-2px);
+}
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 56px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hstat { text-align: center; }
+.hstat .n {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--naranja-claro);
+  line-height: 1;
+}
+.hstat .l {
+  font-size: 12px;
+  color: rgba(255,255,255,.7);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* TOOLS SECTION */
+.tools-section {
+  padding: 80px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--azul-marino);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-eyebrow::after {
+  content: '';
+  width: 32px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--azul-marino), var(--naranja-tierra));
+  border-radius: 2px;
+}
+.section-title {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 800;
+  color: var(--gris-oscuro);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.section-sub {
+  font-size: 15px;
+  color: var(--gris-medio);
+  line-height: 1.65;
+  max-width: 560px;
+  margin-bottom: 48px;
+}
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.tool-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--sh-md);
+  border: 1.5px solid var(--gris-muy-claro);
+  display: flex;
+  flex-direction: column;
+  transition: transform .25s, box-shadow .25s;
+  text-decoration: none;
+  color: inherit;
+}
+.tool-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sh-lg);
+}
+
+/* CARD IMAGES */
+.card-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #f5f7fa, #e8eef5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.card-image-1 { background: linear-gradient(135deg, var(--azul-soft), var(--azul-muy-soft)); }
+.card-image-2 { background: linear-gradient(135deg, var(--verde-soft), var(--verde-muy-soft)); }
+.card-image-3 { background: linear-gradient(135deg, var(--naranja-soft), var(--naranja-muy-soft)); }
+.card-image svg {
+  width: 100px;
+  height: 100px;
+  opacity: .8;
+}
+
+.tc-body {
+  padding: 22px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.tc-num {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--azul-marino);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.tc-header h2 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--gris-oscuro);
+  line-height: 1.2;
+  margin-bottom: 7px;
+}
+.tc-header p {
+  font-size: 13px;
+  color: var(--gris-medio);
+  line-height: 1.5;
+}
+.tc-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 16px;
+  margin-bottom: 22px;
+  flex: 1;
+}
+.tc-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 13px;
+  color: var(--gris-medio);
+  line-height: 1.4;
+}
+.tc-features li::before {
+  content: '✓';
+  color: var(--verde-medio);
+  font-weight: 800;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.tc-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.tc-tag {
+  background: var(--gris-muy-claro);
+  border: 1px solid var(--gris-claro);
+  border-radius: 20px;
+  padding: 4px 11px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gris-medio);
+}
+.tc-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .15s;
+  cursor: pointer;
+  border: 1.5px solid;
+  font-family: var(--font);
+  width: 100%;
+}
+.tc-cta-1 {
+  background: var(--azul-muy-soft);
+  color: var(--azul-marino);
+  border-color: var(--azul-soft);
+}
+.tc-cta-1:hover {
+  background: var(--azul-soft);
+  border-color: var(--azul-claro);
+}
+.tc-cta-2 {
+  background: var(--verde-muy-soft);
+  color: var(--verde-bosque);
+  border-color: var(--verde-soft);
+}
+.tc-cta-2:hover {
+  background: var(--verde-soft);
+  border-color: var(--verde-medio);
+}
+.tc-cta-3 {
+  background: var(--naranja-muy-soft);
+  color: var(--naranja-tierra);
+  border-color: var(--naranja-soft);
+}
+.tc-cta-3:hover {
+  background: var(--naranja-soft);
+  border-color: var(--naranja-claro);
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(135deg, var(--azul-marino), var(--gris-oscuro));
+  padding: 44px 40px 32px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.footer-brand {
+  flex: 1;
+  min-width: 220px;
+}
+.footer-brand .fl {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  text-decoration: none;
+}
+.footer-brand .fl-ic {
+  width: 32px;
+  height: 32px;
+  background: rgba(212, 101, 28, .25);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--naranja-claro);
+  font-weight: 800;
+  font-size: 16px;
+}
+.footer-brand .fl span {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+}
+.footer-brand p {
+  font-size: 12.5px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.65;
+  max-width: 300px;
+}
+.footer-links {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.fl-col h4 {
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(255,255,255,.5);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 14px;
+}
+.fl-col a {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  margin-bottom: 9px;
+  transition: color .15s;
+}
+.fl-col a:hover {
+  color: var(--naranja-claro);
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 22px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom p {
+  font-size: 11.5px;
+  color: rgba(255,255,255,.4);
+  line-height: 1.5;
+}
+.footer-bottom p strong {
+  color: rgba(255,255,255,.6);
+}
+
+/* RESPONSIVE */
+@media(max-width: 860px) {
+  .tools-grid { grid-template-columns: 1fr; }
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 60px 24px 52px; }
+  .tools-section { padding-left: 20px; padding-right: 20px; }
+  .footer-inner { padding-left: 20px; padding-right: 20px; }
+  .card-image { height: 150px; font-size: 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">
+      <div class="nav-logo-ic">📋</div>
+      <div>
+        <span>Auditoría BPM/HACCP</span>
+        <small>Plantas de Alimentos · Ecuador</small>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="infografia.html">📊 Infografía</a>
+      <a class="nav-link" href="cuestionario.html">❓ Autoevaluación</a>
+      <a class="nav-link" href="auditoria.html">✅ Auditoría</a>
+    </div>
+    <a class="nav-pill" href="auditoria.html">Comenzar →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Normativa ARCSA, INEN, Código de Salud</div>
+    <h1>Sistema de <em>Auditoría Interna</em><br>para BPM/HACCP</h1>
+    <p>Herramientas interactivas para implementar, capacitar y verificar Buenas Prácticas de Manufactura (BPM) y Análisis de Peligros y Puntos Críticos de Control (HACCP) en plantas procesadoras de alimentos en Ecuador.</p>
+    <div class="hero-btns">
+      <a class="hero-btn hb-primary" href="auditoria.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        Iniciar Auditoría
+      </a>
+      <a class="hero-btn hb-outline" href="infografia.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        Ver Guía
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="n">50+</div><div class="l">Criterios BPM</div></div>
+      <div class="hstat"><div class="n">8</div><div class="l">Áreas evaluadas</div></div>
+      <div class="hstat"><div class="n">3</div><div class="l">Herramientas</div></div>
+      <div class="hstat"><div class="n">100%</div><div class="l">Offline + PDF</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section>
+  <div class="tools-section">
+    <div class="section-eyebrow">Herramientas</div>
+    <h2 class="section-title">Todo lo que necesitas para<br>auditoría efectiva en BPM/HACCP</h2>
+    <p class="section-sub">Desde capacitación hasta evaluación documentada. Herramientas interactivas descargables como PDF.</p>
+
+    <div class="tools-grid">
+      <!-- INFOGRAFÍA -->
+      <a class="tool-card" href="infografia.html">
+        <div class="card-image card-image-1">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="40" y="60" width="120" height="80" rx="8" fill="rgba(15, 76, 117, .2)" stroke="rgba(15, 76, 117, .4)" stroke-width="2"/>
+            <line x1="40" y1="85" x2="160" y2="85" stroke="rgba(15, 76, 117, .4)" stroke-width="2"/>
+            <line x1="65" y1="60" x2="65" y2="140" stroke="rgba(15, 76, 117, .3)" stroke-width="1.5"/>
+            <circle cx="55" cy="95" r="4" fill="rgba(15, 76, 117, .6)"/>
+            <circle cx="75" cy="100" r="4" fill="rgba(15, 76, 117, .6)"/>
+            <circle cx="95" cy="85" r="4" fill="rgba(15, 76, 117, .6)"/>
+          </svg>
+        </div>
+        <div class="tc-body">
+          <div class="tc-num">Herramienta 01</div>
+          <h2>Guía Visual de BPM/HACCP</h2>
+          <p style="color: var(--gris-medio); font-size: 13px; margin-bottom: 16px;">Infografía completa con principios, requisitos legales y flujos de auditoría.</p>
+          <ul class="tc-features">
+            <li>10 principios de BPM ilustrados</li>
+            <li>7 pasos HACCP visuales</li>
+            <li>Normativa ARCSA y Código de Salud</li>
+            <li>Matriz de criterios por área</li>
+            <li>Preguntas clave del auditor</li>
+          </ul>
+          <div class="tc-meta">
+            <span class="tc-tag">📥 Descargable PDF</span>
+            <span class="tc-tag">🎨 Visual</span>
+            <span class="tc-tag">📚 Capacitación</span>
+          </div>
+          <div class="tc-cta tc-cta-1">
+            <span>Abrir Guía</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- CUESTIONARIO -->
+      <a class="tool-card" href="cuestionario.html">
+        <div class="card-image card-image-2">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="70" stroke="rgba(45, 134, 89, .3)" stroke-width="3"/>
+            <path d="M85 95 L95 105 L120 75" stroke="rgba(45, 134, 89, .6)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="100" cy="100" r="60" stroke="rgba(45, 134, 89, .2)" stroke-width="1" stroke-dasharray="5,5"/>
+          </svg>
+        </div>
+        <div class="tc-body">
+          <div class="tc-num">Herramienta 02</div>
+          <h2>Autoevaluación</h2>
+          <p style="color: var(--gris-medio); font-size: 13px; margin-bottom: 16px;">Cuestionario de 30+ preguntas para identificar brechas en el sistema.</p>
+          <ul class="tc-features">
+            <li>30+ preguntas detalladas</li>
+            <li>Opciones: Conforme/Parcial/No conforme/N/A</li>
+            <li>Cálculo automático de cumplimiento</li>
+            <li>Informe generado en tiempo real</li>
+            <li>8 áreas de evaluación</li>
+          </ul>
+          <div class="tc-meta">
+            <span class="tc-tag">📥 PDF</span>
+            <span class="tc-tag">🔍 Diagnóstico</span>
+            <span class="tc-tag">📊 Informe</span>
+          </div>
+          <div class="tc-cta tc-cta-2">
+            <span>Abrir Cuestionario</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- AUDITORÍA -->
+      <a class="tool-card" href="auditoria.html">
+        <div class="card-image card-image-3">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="50" y="50" width="100" height="100" rx="8" stroke="rgba(212, 101, 28, .4)" stroke-width="2"/>
+            <line x1="50" y1="75" x2="150" y2="75" stroke="rgba(212, 101, 28, .3)" stroke-width="1.5"/>
+            <line x1="60" y1="90" x2="140" y2="90" stroke="rgba(212, 101, 28, .2)" stroke-width="1"/>
+            <line x1="60" y1="105" x2="140" y2="105" stroke="rgba(212, 101, 28, .2)" stroke-width="1"/>
+            <line x1="60" y1="120" x2="120" y2="120" stroke="rgba(212, 101, 28, .2)" stroke-width="1"/>
+            <circle cx="75" cy="75" r="3" fill="rgba(212, 101, 28, .5)"/>
+          </svg>
+        </div>
+        <div class="tc-body">
+          <div class="tc-num">Herramienta 03</div>
+          <h2>Checklist de Auditoría</h2>
+          <p style="color: var(--gris-medio); font-size: 13px; margin-bottom: 16px;">Evaluación por área con criterios específicos y documentación en tiempo real.</p>
+          <ul class="tc-features">
+            <li>8 áreas de evaluación</li>
+            <li>50+ criterios de cumplimiento</li>
+            <li>Calificación C/NC/N/A</li>
+            <li>% de cumplimiento automático</li>
+            <li>Observaciones y planes de acción</li>
+          </ul>
+          <div class="tc-meta">
+            <span class="tc-tag">📥 PDF</span>
+            <span class="tc-tag">✅ Por área</span>
+            <span class="tc-tag">🏭 Auditoría</span>
+          </div>
+          <div class="tc-cta tc-cta-3">
+            <span>Iniciar Auditoría</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="fl" href="/">
+          <div class="fl-ic">📋</div>
+          <span>Auditoría BPM/HACCP</span>
+        </a>
+        <p>Sistema integral de herramientas para implementación de Buenas Prácticas de Manufactura y análisis de peligros en plantas procesadoras de alimentos en Ecuador.</p>
+      </div>
+      <div class="footer-links">
+        <div class="fl-col">
+          <h4>Herramientas</h4>
+          <a href="infografia.html">📊 Guía Visual</a>
+          <a href="cuestionario.html">❓ Autoevaluación</a>
+          <a href="auditoria.html">✅ Auditoría</a>
+        </div>
+        <div class="fl-col">
+          <h4>Normativa</h4>
+          <a href="infografia.html#arcsa">ARCSA</a>
+          <a href="infografia.html#inen">INEN 1334</a>
+          <a href="infografia.html#codigo">Código de Salud</a>
+          <a href="infografia.html#iso">ISO 22000</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Sistema de auditoría BPM/HACCP para plantas procesadoras de alimentos en <strong>Ecuador</strong>. Basado en ARCSA, INEN, Código de Salud y estándares internacionales.</p>
+      <p style="white-space: nowrap;">© 2025 🇪🇨</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

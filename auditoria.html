@@ -196,3 +196,118 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+  <style>
+  /* Estilos específicos para la tabla de evaluación */
+  .eval-row {
+    background: white;
+    border-bottom: 1px solid var(--gray200);
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 40px 1fr 100px 180px;
+    align-items: center;
+    gap: 15px;
+  }
+  .eval-header {
+    background: var(--g900);
+    color: white;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    display: grid;
+    grid-template-columns: 40px 1fr 100px 180px;
+    gap: 15px;
+    border-radius: 8px 8px 0 0;
+  }
+  .badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    text-align: center;
+  }
+  .badge-i { background: #fee2e2; color: #991b1b; border: 1px solid #ef4444; } /* Imprescindible */
+  .badge-nec { background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; } /* Necesario */
+  .badge-inf { background: #dbeafe; color: #1e40af; border: 1px solid #3b82f6; } /* Informativo */
+
+  .btn-check {
+    display: flex;
+    background: var(--gray100);
+    border-radius: 6px;
+    padding: 2px;
+    border: 1px solid var(--gray200);
+  }
+  .btn-check button {
+    flex: 1;
+    border: none;
+    padding: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 4px;
+  }
+  .btn-check button.active-c { background: var(--g500); color: white; }
+  .btn-check button.active-nc { background: #ef4444; color: white; }
+</style>
+
+<div class="machine-card" style="margin-top:25px; padding:0; overflow:hidden;">
+  <div style="padding: 20px;">
+    <h2 style="font-size:16px">Sección I: Instalaciones Fisicas y Edificación</h2>
+    <p style="font-size:12px; color:var(--gray600)">Evaluación de riesgos según importancia del ítem</p>
+  </div>
+
+  <div class="eval-header">
+    <div>N°</div>
+    <div>Criterio de Verificación</div>
+    <div>Importancia</div>
+    <div>Calificación</div>
+  </div>
+
+  <div class="eval-row">
+    <div style="font-weight: 700; color: var(--gray600)">1.1</div>
+    <div style="font-size: 13px;">
+      ¿El establecimiento está ubicado en un lugar alejado de focos de insalubridad o contaminación?
+    </div>
+    <div><span class="badge badge-i">I (CRÍTICO)</span></div>
+    <div class="btn-check">
+      <button class="active-c">C</button>
+      <button>NC</button>
+      <button>N/A</button>
+    </div>
+  </div>
+
+  <div class="eval-row">
+    <div style="font-weight: 700; color: var(--gray600)">1.2</div>
+    <div style="font-size: 13px;">
+      ¿Las áreas de recepción de animales están techadas y limpias?
+    </div>
+    <div><span class="badge badge-nec">NEC (GRAVE)</span></div>
+    <div class="btn-check">
+      <button>C</button>
+      <button class="active-nc">NC</button>
+      <button>N/A</button>
+    </div>
+  </div>
+
+  <div class="eval-row">
+    <div style="font-weight: 700; color: var(--gray600)">1.3</div>
+    <div style="font-size: 13px;">
+      ¿Existen letreros indicativos de las diferentes áreas de la planta?
+    </div>
+    <div><span class="badge badge-inf">INF (MENOR)</span></div>
+    <div class="btn-check">
+      <button>C</button>
+      <button>NC</button>
+      <button>N/A</button>
+    </div>
+  </div>
+</div>

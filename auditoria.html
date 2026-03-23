@@ -96,74 +96,90 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);line-he
 
   </div>
 
-</body>
-</html>
 <div class="machine-card">
   <div class="card-header">
     <div class="card-header-ic">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--g700)" stroke-width="2">
-        <path d="M3 21h18M3 7l9-4 9 4v14H3V7z"/>
-        <path d="M9 21V11h6v10"/>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--g700)" stroke-width="2" stroke-linecap="round">
+        <path d="M3 21h18M3 7l9-4 9 4v14H3V7z"/><path d="M9 21V11h6v10"/>
       </svg>
     </div>
     <div>
       <h2>Identificación de la Planta de Alimentos</h2>
-      <p>Información legal y técnica según registros de ARCSA / SRI</p>
+      <p>Registre los datos legales y técnicos de la planta antes de comenzar la auditoría</p>
     </div>
   </div>
 
   <div class="form-grid">
     <div class="fgroup">
-      <label>🏢 Razón Social / Nombre de la Planta <span class="req">*</span></label>
-      <input class="finput" id="f-planta" type="text" placeholder="Ej. Procesadora de Lácteos 'El Sol' S.A.">
+      <label>🏢 Razón Social <span class="req">*</span></label>
+      <input class="finput" id="f-nombre-planta" type="text" placeholder="Ej. Lácteos del Austro S.A.">
     </div>
     <div class="fgroup">
-      <label>🆔 RUC (13 dígitos) <span class="req">*</span></label>
+      <label>🆔 RUC (Ecuador) <span class="req">*</span></label>
       <input class="finput" id="f-ruc" type="text" placeholder="Ej. 1790000000001">
     </div>
     <div class="fgroup">
-      <label>📜 Permiso de Funcionamiento ARCSA</label>
-      <input class="finput" id="f-permiso" type="text" placeholder="Ej. ARCSA-DE-067-2026-PF">
+      <label>📜 Permiso de Funcionamiento</label>
+      <input class="finput" id="f-permiso" type="text" placeholder="Código ARCSA">
     </div>
   </div>
 
   <div class="form-grid" style="margin-top:14px">
     <div class="fgroup">
-      <label>📍 Ubicación (Provincia / Ciudad)</label>
-      <input class="finput" id="f-ubicacion" type="text" placeholder="Ej. Pichincha / Mejía">
+      <label>📍 Provincia / Ciudad</label>
+      <input class="finput" id="f-ubicacion" type="text" placeholder="Ej. Guayas / Guayaquil">
     </div>
     <div class="fgroup">
-      <label>🥫 Línea de Producción Evaluada <span class="req">*</span></label>
-      <input class="finput" id="f-linea" type="text" placeholder="Ej. Embutidos madurados / Conservas">
-    </div>
-    <div class="fgroup">
-      <label>📊 Categorización (MIPYMES)</label>
+      <label>🏗️ Categoría MIPYME <span class="req">*</span></label>
       <select class="fselect" id="f-categoria">
-        <option value="">Seleccione categoría...</option>
-        <option value="micro">Microempresa (Artesanal)</option>
+        <option value="">Seleccione...</option>
+        <option value="micro">Microempresa</option>
         <option value="pequena">Pequeña Industria</option>
         <option value="mediana">Mediana Industria</option>
         <option value="grande">Grande Industria</option>
       </select>
     </div>
+    <div class="fgroup">
+      <label>📞 Teléfono de contacto</label>
+      <input class="finput" id="f-tel" type="text" placeholder="Ej. 0990000000">
+    </div>
+  </div>
+
+  <div class="form-grid-2">
+    <div class="fgroup">
+      <label>🥫 Línea de Producción Evaluada <span class="req">*</span></label>
+      <input class="finput" id="f-linea" type="text" placeholder="Ej. Elaboración de jugos y néctares">
+    </div>
+    <div class="fgroup">
+      <label>🛡️ Tipo de Auditoría <span class="req">*</span></label>
+      <div class="tipo-btns" id="tipo-auditoria-btns">
+        <button class="tipo-btn" id="tb-interna" onclick="setTipo('interna')">
+          Interna
+        </button>
+        <button class="tipo-btn" id="tb-arcsa" onclick="setTipo('arcsa')">
+          ARCSA / Entidad
+        </button>
+        <button class="tipo-btn" id="tb-cert" onclick="setTipo('cert')">
+          Certificación
+        </button>
+      </div>
+      <input type="hidden" id="f-tipo-aud" value="">
+    </div>
   </div>
 
   <div class="form-grid" style="margin-top:14px">
     <div class="fgroup">
-      <label>👤 Responsable Técnico / Calidad</label>
-      <input class="finput" id="f-responsable" type="text" placeholder="Nombre del profesional">
+      <label>📅 Fecha de Inspección <span class="req">*</span></label>
+      <input class="finput" id="f-fecha" type="date">
     </div>
     <div class="fgroup">
-      <label>📅 Fecha de Auditoría</label>
-      <input class="finput" id="f-fecha-aud" type="date">
+      <label>👤 Auditor Líder <span class="req">*</span></label>
+      <input class="finput" id="f-auditor" type="text" placeholder="Nombre completo">
     </div>
     <div class="fgroup">
-      <label>🛡️ Tipo de Auditoría</label>
-      <div class="tipo-btns">
-        <button class="tipo-btn" id="t-interna" onclick="setTipo('interna')">Interna</button>
-        <button class="tipo-btn" id="t-certificacion" onclick="setTipo('cert')">Certificación</button>
-        <button class="tipo-btn" id="t-seguimiento" onclick="setTipo('seg')">Seguimiento</button>
-      </div>
+      <label>💼 Cargo del Auditor</label>
+      <input class="finput" id="f-cargo-aud" type="text" placeholder="Ej. Jefe de Aseguramiento">
     </div>
   </div>
 </div>
+

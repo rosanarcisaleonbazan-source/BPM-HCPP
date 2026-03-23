@@ -72,86 +72,6 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
     </div>
   </div>
 
-  <div class="machine-card">
-    <div class="card-header">
-      <div style="background:var(--g50);padding:8px;border-radius:8px">🏠</div>
-      <div>
-        <h2 style="font-size:16px">Identificación de la Planta de Alimentos</h2>
-        <p style="font-size:12px;color:var(--gray600)">Datos legales para el registro de inspección</p>
-      </div>
-    </div>
-
-    <div class="form-grid">
-      <div class="fgroup">
-        <label>🏢 Razón Social <span class="req">*</span></label>
-        <input class="finput" type="text" placeholder="Ej. Lácteos del Austro S.A.">
-      </div>
-      <div class="fgroup">
-        <label>🆔 RUC (13 dígitos) <span class="req">*</span></label>
-        <input class="finput" type="text" placeholder="Ej. 1790000000001">
-      </div>
-      <div class="fgroup">
-        <label>📜 Permiso ARCSA</label>
-        <input class="finput" type="text" placeholder="Código de permiso">
-      </div>
-    </div>
-
-    <div class="form-grid">
-      <div class="fgroup">
-        <label>📍 Provincia / Ciudad</label>
-        <input class="finput" type="text" placeholder="Ej. Guayas / Guayaquil">
-      </div>
-      <div class="fgroup">
-        <label>🏗️ Categoría MIPYME <span class="req">*</span></label>
-        <select class="fselect">
-          <option>Seleccione...</option>
-          <option>Microempresa</option>
-          <option>Pequeña Industria</option>
-          <option>Mediana Industria</option>
-          <option>Grande Industria</option>
-        </select>
-      </div>
-      <div class="fgroup">
-        <label>📞 Teléfono</label>
-        <input class="finput" type="text" placeholder="Ej. 0990000000">
-      </div>
-    </div>
-
-    <div class="form-grid-2">
-      <div class="fgroup">
-        <label>🥫 Línea de Producción <span class="req">*</span></label>
-        <input class="finput" type="text" placeholder="Ej. Elaboración de cárnicos">
-      </div>
-      <div class="fgroup">
-        <label>🛡️ Tipo de Auditoría <span class="req">*</span></label>
-        <div class="tipo-btns">
-          <button class="tipo-btn active-btn">Interna</button>
-          <button class="tipo-btn">ARCSA</button>
-          <button class="tipo-btn">Certificación</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-grid">
-      <div class="fgroup">
-        <label>📅 Fecha Inspección <span class="req">*</span></label>
-        <input class="finput" type="date">
-      </div>
-      <div class="fgroup">
-        <label>👤 Auditor Líder <span class="req">*</span></label>
-        <input class="finput" type="text" placeholder="Nombre completo">
-      </div>
-      <div class="fgroup">
-        <label>💼 Cargo</label>
-        <input class="finput" type="text" placeholder="Ej. Jefe de Calidad">
-      </div>
-    </div>
-  </div>
-</div>
-
-</body>
-</html>
-
 <div class="machine-card">
   <div class="card-header">
     <div style="background:var(--g50);padding:8px;border-radius:8px">📜</div>
@@ -168,7 +88,7 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
   </div>
 
   <div class="form-grid" style="margin-top:15px">
-    <div class="fgroup"><label>🏢 Razón Social (RUC)</label><input class="finput" type="text"></div>
+    <div class="fgroup"><label>🏢 Razón Social</label><input class="finput" type="text" placeholder="Nombre de la empresa"></div>
     <div class="fgroup"><label>🆔 RUC (13 dígitos)</label><input class="finput" type="text" maxlength="13"></div>
     <div class="fgroup"><label>🛡️ Motivo Auditoría</label>
       <select class="fselect">
@@ -188,7 +108,8 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
   <div class="form-grid" style="margin-top:15px; background:var(--gray50); padding:12px; border-radius:8px">
     <div class="fgroup"><label>🧾 N° Factura (Tasa)</label><input class="finput" type="text"></div>
     <div class="fgroup"><label>💵 Valor Factura + IVA</label><input class="finput" type="text"></div>
-    <div class="fgroup" style="visibility:hidden"></div> </div>
+    <div class="fgroup" style="visibility:hidden"></div>
+  </div>
 
   <div class="card-header" style="margin-top:25px">
     <div style="background:var(--t100);padding:8px;border-radius:8px">📍</div>
@@ -228,4 +149,3 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
     <div class="fgroup" style="grid-column: span 2;"><label>📧 Correo Electrónico Técnico</label><input class="finput" type="email"></div>
   </div>
 </div>
-

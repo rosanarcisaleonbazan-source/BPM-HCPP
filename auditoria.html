@@ -8,101 +8,89 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-body{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  background:#f5f5f0;
-  padding:20px;
-}
-h1{text-align:center}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#f0ede6;margin:0}
+.page{max-width:1000px;margin:auto;padding:20px}
 
-.check-item{
-  background:#fff;
-  border-radius:10px;
-  padding:15px;
-  margin-bottom:10px;
-  border-left:5px solid #ccc;
-}
-.ci-cumple{border-left-color:green}
-.ci-no{border-left-color:red}
-.ci-na{border-left-color:gray}
+.hdr{background:linear-gradient(135deg,#1a3d05,#357a10);color:#fff;padding:25px;border-radius:16px;margin-bottom:20px}
+.hdr h1{margin:0}
 
-.btn{
-  padding:6px 10px;
-  border:1px solid #ccc;
-  cursor:pointer;
-  margin-right:5px;
-}
+.score{background:#fff;padding:20px;border-radius:12px;margin-bottom:20px}
+.check-item{background:#fff;border-radius:10px;padding:14px;margin-bottom:10px;border-left:5px solid #ccc}
+.ci-cumple{border-left-color:#4caf50}
+.ci-no{border-left-color:#f44336}
+.ci-na{border-left-color:#999}
+
+.btn{padding:6px 12px;margin:4px;border:1px solid #ccc;border-radius:6px;cursor:pointer}
 .active-C{background:#d4edda}
 .active-N{background:#f8d7da}
 .active-NA{background:#eee}
-
-.score{
-  background:#fff;
-  padding:15px;
-  margin-bottom:20px;
-  border-radius:10px;
-}
 </style>
 </head>
 
 <body>
 
-<h1>Auditoría BPM / HACCP<br>Plantas de Alimentos · Ecuador</h1>
+<div class="page">
+
+<div class="hdr">
+<h1>Checklist de Cumplimiento<br>BPM / HACCP</h1>
+<p>Auditoría de Buenas Prácticas de Manufactura y sistema HACCP en plantas de alimentos (Ecuador)</p>
+</div>
 
 <div class="score">
-  <b>Cumple:</b> <span id="c">0</span> |
-  <b>No Cumple:</b> <span id="n">0</span> |
-  <b>N/A:</b> <span id="na">0</span> |
-  <b>%:</b> <span id="pct">0%</span>
+<b>Cumple:</b> <span id="c">0</span> |
+<b>No Cumple:</b> <span id="n">0</span> |
+<b>N/A:</b> <span id="na">0</span> |
+<b>%:</b> <span id="pct">0%</span>
 </div>
 
 <div id="app"></div>
 
+</div>
+
 <script>
 
 const CRITERIOS = [
-/* INSTALACIONES */
 {sec:"A - Instalaciones",t:"Instalaciones en buen estado"},
 {sec:"A - Instalaciones",t:"Flujo evita contaminación cruzada"},
-{sec:"A - Instalaciones",t:"Iluminación y ventilación adecuadas"},
+{sec:"A - Instalaciones",t:"Iluminación adecuada"},
+{sec:"A - Instalaciones",t:"Agua potable disponible"},
+{sec:"A - Instalaciones",t:"Superficies sanitarias"},
+{sec:"A - Instalaciones",t:"Manejo de residuos"},
 
-/* PERSONAL */
-{sec:"B - Personal",t:"Uso correcto de EPP"},
-{sec:"B - Personal",t:"Lavado de manos adecuado"},
-{sec:"B - Personal",t:"Personal capacitado en BPM"},
+{sec:"B - Personal",t:"Uso de EPP"},
+{sec:"B - Personal",t:"Lavado de manos"},
+{sec:"B - Personal",t:"Uniforme limpio"},
+{sec:"B - Personal",t:"Sin objetos personales"},
+{sec:"B - Personal",t:"Capacitación BPM"},
 
-/* LIMPIEZA */
-{sec:"C - Limpieza",t:"Programa de limpieza documentado"},
-{sec:"C - Limpieza",t:"Uso correcto de desinfectantes"},
-{sec:"C - Limpieza",t:"Registros de limpieza actualizados"},
+{sec:"C - Limpieza",t:"Programa de limpieza"},
+{sec:"C - Limpieza",t:"Uso de desinfectantes"},
+{sec:"C - Limpieza",t:"Registros de limpieza"},
+{sec:"C - Limpieza",t:"Validación de limpieza"},
 
-/* PLAGAS */
-{sec:"D - Plagas",t:"Control de plagas implementado"},
-{sec:"D - Plagas",t:"Sin evidencia de infestación"},
+{sec:"D - Plagas",t:"Control de plagas"},
+{sec:"D - Plagas",t:"Sin infestación"},
+{sec:"D - Plagas",t:"Registros de plagas"},
 
-/* HACCP */
-{sec:"E - HACCP",t:"Análisis de peligros documentado"},
-{sec:"E - HACCP",t:"Puntos críticos identificados (CCP)"},
-{sec:"E - HACCP",t:"Límites críticos definidos"},
-{sec:"E - HACCP",t:"Monitoreo de CCP registrado"},
+{sec:"E - HACCP",t:"Análisis de peligros"},
+{sec:"E - HACCP",t:"CCP definidos"},
+{sec:"E - HACCP",t:"Límites críticos"},
+{sec:"E - HACCP",t:"Monitoreo"},
+{sec:"E - HACCP",t:"Acciones correctivas"},
 
-/* PROCESOS */
+{sec:"F - Procesos",t:"Trazabilidad"},
 {sec:"F - Procesos",t:"Control de temperatura"},
-{sec:"F - Procesos",t:"Trazabilidad del producto"},
 {sec:"F - Procesos",t:"Control de materia prima"},
 
-/* DOCUMENTACIÓN */
-{sec:"G - Documentos",t:"Registros completos y firmados"},
-{sec:"G - Documentos",t:"Cumple normativa ARCSA"},
-{sec:"G - Documentos",t:"Procedimientos actualizados"},
+{sec:"G - Documentación",t:"Cumple ARCSA"},
+{sec:"G - Documentación",t:"Registros firmados"},
+{sec:"G - Documentación",t:"Procedimientos actualizados"}
 ];
 
 let state = {};
 
 function render(){
-  const app = document.getElementById("app");
-  app.innerHTML="";
-
+  let app=document.getElementById("app");
   let actual="";
 
   CRITERIOS.forEach((c,i)=>{
@@ -110,12 +98,12 @@ function render(){
 
     if(c.sec!==actual){
       actual=c.sec;
-      const h=document.createElement("h3");
+      let h=document.createElement("h3");
       h.textContent="Sección "+c.sec;
       app.appendChild(h);
     }
 
-    const div=document.createElement("div");
+    let div=document.createElement("div");
     div.className="check-item";
     div.id="item-"+i;
 
@@ -132,10 +120,9 @@ function render(){
 
 function setVal(i,val){
   state[i]=val;
+  let el=document.getElementById("item-"+i);
 
-  const el=document.getElementById("item-"+i);
   el.classList.remove("ci-cumple","ci-no","ci-na");
-
   if(val==="C") el.classList.add("ci-cumple");
   if(val==="N") el.classList.add("ci-no");
   if(val==="NA") el.classList.add("ci-na");
@@ -152,8 +139,8 @@ function update(){
     if(v==="NA") na++;
   });
 
-  let aplica = c+n;
-  let pct = aplica>0 ? Math.round((c/aplica)*100) : 0;
+  let aplica=c+n;
+  let pct=aplica?Math.round(c/aplica*100):0;
 
   document.getElementById("c").textContent=c;
   document.getElementById("n").textContent=n;

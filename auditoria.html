@@ -152,59 +152,156 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
 </body>
 </html>
 
+
+
 <div class="machine-card">
   <div class="card-header">
-    <div style="background:var(--g50);padding:8px;border-radius:8px">🇪🇨</div>
+    <div style="background:var(--g50);padding:8px;border-radius:8px">📋</div>
     <div>
-      <h2 style="font-size:16px">Identificación del Establecimiento (Agrocalidad)</h2>
+      <h2 style="font-size:16px">1. Control de Inspección y Datos Legales</h2>
+      <p style="font-size:12px;color:var(--gray600)">Información obligatoria para certificación de BPM</p>
     </div>
   </div>
 
   <div class="form-grid">
     <div class="fgroup">
-      <label>🏢 Nombre o Razón Social</label>
-      <input class="finput" type="text">
+      <label>📅 Fecha (Día/Mes/Año)</label>
+      <input class="finput" type="date">
     </div>
     <div class="fgroup">
-      <label>🆔 RUC</label>
-      <input class="finput" type="text">
+      <label>🕐 Hora Inicio</label>
+      <input class="finput" type="time">
     </div>
     <div class="fgroup">
-      <label>👤 Propietario / Rep. Legal</label>
+      <label>🕐 Hora Cierre</label>
+      <input class="finput" type="time">
+    </div>
+  </div>
+
+  <div class="form-grid" style="margin-top:15px">
+    <div class="fgroup">
+      <label>🏢 Razón Social / Nombre</label>
+      <input class="finput" type="text" placeholder="Ej. Industria Cárnica S.A.">
+    </div>
+    <div class="fgroup">
+      <label>🆔 RUC (13 dígitos)</label>
+      <input class="finput" type="text" placeholder="17XXXXXXXX001">
+    </div>
+    <div class="fgroup">
+      <label>👤 Representante Legal</label>
       <input class="finput" type="text">
     </div>
   </div>
 
-  <div class="form-grid" style="margin-top:10px">
+  <div class="form-grid" style="margin-top:15px; background:var(--gray50); padding:10px; border-radius:8px">
     <div class="fgroup">
-      <label>📍 Ubicación (Provincia/Cantón/Parroquia)</label>
-      <input class="finput" type="text">
+      <label>🧾 Número de Factura</label>
+      <input class="finput" type="text" placeholder="001-001-000000XXX">
     </div>
     <div class="fgroup">
-      <label>🌐 Coordenadas (X / Y)</label>
-      <input class="finput" type="text" placeholder="X: _______  Y: _______">
+      <label>💵 Valor Factura + IVA</label>
+      <input class="finput" type="text" placeholder="USD">
     </div>
     <div class="fgroup">
-      <label>📏 Superficie en m²</label>
+      <label>📧 Correo Electrónico</label>
+      <input class="finput" type="email" placeholder="institucional@correo.com">
+    </div>
+  </div>
+
+  <div class="card-header" style="margin-top:25px">
+    <div style="background:var(--t100);padding:8px;border-radius:8px">📍</div>
+    <div>
+      <h2 style="font-size:16px">2. Ubicación y Georreferenciación</h2>
+    </div>
+  </div>
+
+  <div class="form-grid">
+    <div class="fgroup">
+      <label>🗺️ Provincia / Cantón / Parroquia</label>
+      <input class="finput" type="text" placeholder="Pichincha / Quito / ...">
+    </div>
+    <div class="fgroup">
+      <label>📡 Coordenada X (Longitud)</label>
+      <input class="finput" type="text" placeholder="0.000000">
+    </div>
+    <div class="fgroup">
+      <label>📡 Coordenada Y (Latitud)</label>
+      <input class="finput" type="text" placeholder="0.000000">
+    </div>
+  </div>
+  <div class="fgroup" style="margin-top:10px">
+    <label>🏠 Dirección Exacta</label>
+    <input class="finput" type="text" placeholder="Calle principal, número y cruce">
+  </div>
+
+  <div class="card-header" style="margin-top:25px">
+    <div style="background:var(--g50);padding:8px;border-radius:8px">🥩</div>
+    <div>
+      <h2 style="font-size:16px">3. Información Técnica y Capacidad</h2>
+    </div>
+  </div>
+
+  <div class="form-grid">
+    <div class="fgroup">
+      <label>🏗️ Categoría MIPYME</label>
+      <div class="tipo-btns">
+        <button class="tipo-btn">Micro</button>
+        <button class="tipo-btn">Pequeña</button>
+        <button class="tipo-btn">Mediana</button>
+        <button class="tipo-btn">Grande</button>
+      </div>
+    </div>
+    <div class="fgroup">
+      <label>⚙️ Capacidad Instalada</label>
+      <input class="finput" type="text" placeholder="Ej: 50 bovinos/día">
+    </div>
+    <div class="fgroup">
+      <label>📏 Superficie Total (m²)</label>
       <input class="finput" type="number">
     </div>
   </div>
 
-  <div class="form-grid" style="margin-top:10px; border-top:1px solid #eee; padding-top:10px">
-    <div class="fgroup">
-      <label>👨‍🔬 Responsable Técnico (Nombre)</label>
-      <input class="finput" type="text">
+  <div class="card-header" style="margin-top:25px">
+    <div style="background:var(--g50);padding:8px;border-radius:8px">👨‍🔬</div>
+    <div>
+      <h2 style="font-size:16px">4. Responsables Técnicos (SENESCYT)</h2>
     </div>
-    <div class="fgroup">
-      <label>📜 N°. Registro SENESCYT</label>
-      <input class="finput" type="text">
+  </div>
+
+  <div class="form-grid-2">
+    <div style="border:1px solid var(--gray200); padding:12px; border-radius:8px">
+      <p style="font-size:11px; font-weight:800; color:var(--g700); margin-bottom:8px">RESPONSABLE PRINCIPAL</p>
+      <div class="fgroup">
+        <label>Nombre y Apellido</label>
+        <input class="finput" type="text">
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px">
+        <div class="fgroup">
+          <label>Reg. SENESCYT</label>
+          <input class="finput" type="text">
+        </div>
+        <div class="fgroup">
+          <label>¿Presente?</label>
+          <select class="fselect"><option>Sí</option><option>No</option></select>
+        </div>
+      </div>
     </div>
-    <div class="fgroup">
-      <label>✅ Presente en Inspección</label>
-      <select class="fselect">
-        <option>Si</option>
-        <option>No</option>
-      </select>
+    <div style="border:1px solid var(--gray200); padding:12px; border-radius:8px">
+      <p style="font-size:11px; font-weight:800; color:var(--gray600); margin-bottom:8px">RESPONSABLE SECUNDARIO</p>
+      <div class="fgroup">
+        <label>Nombre y Apellido</label>
+        <input class="finput" type="text">
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px">
+        <div class="fgroup">
+          <label>Reg. SENESCYT</label>
+          <input class="finput" type="text">
+        </div>
+        <div class="fgroup">
+          <label>¿Presente?</label>
+          <select class="fselect"><option>No</option><option>Sí</option></select>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,37 @@
+const CRITERIOS = {
+  sec1: [
+    {id:1, icon:'🧼', title:'Instalaciones cumplen con Buenas Prácticas de Manufactura (BPM)', hint:'Pisos, paredes, techos limpios, sin grietas, fáciles de limpiar y desinfectar.'},
+    {id:2, icon:'🚿', title:'Disponibilidad de agua potable y sistema de drenaje adecuado', hint:'Agua certificada y drenajes sin retorno ni acumulación.'},
+    {id:3, icon:'🧍‍♂️', title:'Higiene del personal adecuada', hint:'Uso de EPP, lavado de manos, uniforme limpio.'},
+    {id:4, icon:'🐀', title:'Programa de control de plagas implementado', hint:'Registros, monitoreo y acciones correctivas.'},
+    {id:5, icon:'🧴', title:'Programa de limpieza y desinfección documentado', hint:'Frecuencia, responsables y productos utilizados.'},
+    {id:6, icon:'🗑️', title:'Manejo adecuado de residuos', hint:'Separación, almacenamiento y disposición final.'},
+    {id:7, icon:'🌡️', title:'Control de temperatura en áreas críticas', hint:'Cámaras frigoríficas, almacenamiento y transporte.'},
+    {id:8, icon:'📋', title:'Registros de BPM actualizados', hint:'Se conservan registros mínimo 5 años.'},
+  ],
+
+  sec2: [
+    {id:9, icon:'⚠️', title:'Existe un plan HACCP documentado', hint:'Identificación de peligros biológicos, químicos y físicos.'},
+    {id:10, icon:'🔬', title:'Análisis de peligros correctamente realizado', hint:'Incluye evaluación de riesgos y medidas de control.'},
+    {id:11, icon:'🎯', title:'Identificación de Puntos Críticos de Control (PCC)', hint:'Determinación clara según árbol de decisiones.'},
+    {id:12, icon:'📏', title:'Límites críticos definidos para cada PCC', hint:'Ej. temperatura, tiempo, pH.'},
+    {id:13, icon:'📊', title:'Sistema de monitoreo de PCC implementado', hint:'Frecuencia, responsables y registros.'},
+    {id:14, icon:'🚨', title:'Acciones correctivas definidas y aplicadas', hint:'Cuando se pierde el control de un PCC.'},
+    {id:15, icon:'📑', title:'Verificación y validación del sistema HACCP', hint:'Auditorías, análisis microbiológicos, revisión del sistema.'},
+  ],
+
+  sec3: [
+    {id:16, icon:'🔄', title:'Actualización del plan HACCP ante cambios', hint:'Cambios en procesos, equipos o materias primas.'},
+    {id:17, icon:'🧪', title:'Programas de prerrequisitos (PPR) implementados', hint:'Incluye BPM, limpieza, control de plagas, etc.'},
+    {id:18, icon:'⚙️', title:'Mantenimiento preventivo de equipos', hint:'Registros y cronogramas actualizados.'},
+    {id:19, icon:'📡', title:'Monitoreo ambiental implementado', hint:'Superficies, aire, equipos.'},
+    {id:20, icon:'🌿', title:'Control de alérgenos', hint:'Identificación, segregación y etiquetado.'},
+    {id:21, icon:'👩‍🏫', title:'Capacitación del personal en BPM y HACCP', hint:'Registros de formación continua.'},
+  ],
+
+  sec4: [
+    {id:22, icon:'🔬', title:'Evaluación de riesgos en el proceso cárnico', hint:'Incluye recepción, faenamiento, almacenamiento.'},
+    {id:23, icon:'🔁', title:'Revisión periódica del sistema HACCP', hint:'Al menos una vez al año o ante cambios.'},
+    {id:24, icon:'✔️', title:'Verificación de limpieza antes de producción', hint:'Inspección y registros previos al inicio de operaciones.'},
+  ]
+};

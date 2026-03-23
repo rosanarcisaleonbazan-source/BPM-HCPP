@@ -319,129 +319,71 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
 
 
 
-
-
-
-
-  <div class="machine-card" style="margin-top:25px; padding:0; overflow:hidden;">
-  <div style="padding: 20px; background: var(--g900); color: white;">
-    <h2 style="font-size:16px; margin:0">BLOQUE I: DOCUMENTOS HABILITANTES</h2>
-  </div>
-
-  <div class="eval-header">
-    <div>No.</div>
-    <div>Afirmación / Criterio de Cumplimiento</div>
-    <div>Criterio</div>
-    <div>Calificación</div>
-  </div>
-
-  <div class="eval-row">
-    <div>1</div>
-    <div style="font-size: 13px;">
-      <b>Documentos reglamentarios:</b> Verificar que cuente con el permiso de uso de suelo, permiso de medio ambiente, permiso de bomberos o la LUAE cuando corresponda, contrato de arrendamiento de la fábrica o bodega cuando corresponda.
-    </div>
-    <div><span class="badge badge-inf">INF</span></div>
-    <div class="column-calif">
-      <div class="btn-check">
-        <button>SI</button><button>NO</button><button>N/A</button>
-      </div>
-      <input type="text" class="finput-obs" placeholder="Justificar si es N/A...">
-    </div>
-  </div>
-
-  <div class="eval-row">
-    <div>2</div>
-    <div style="font-size: 13px;">
-      <b>Sistema GUÍA de AGROCALIDAD:</b> Verificar que se encuentre correctamente registrada en el Sistema Guía de Agrocalidad, y que se haya declarado la información completa de áreas y sitios.
-    </div>
-    <div><span class="badge badge-i">IMP</span></div>
-    <div class="column-calif">
-      <div class="btn-check">
-        <button>SI</button><button>NO</button><button>N/A</button>
-      </div>
-      <input type="text" class="finput-obs" placeholder="Justificar si es N/A...">
-    </div>
-  </div>
-
-  <div class="eval-row">
-    <div>3</div>
-    <div style="font-size: 13px;">
-      <b>Responsable Técnico:</b> Verificar que el título del profesional sea acorde a las normativas vigentes (Médico Veterinario, Químico, Bioquímico, Ingeniero Zootecnista y afines). Verificar contrato de trabajo.
-    </div>
-    <div><span class="badge badge-i">IMP</span></div>
-    <div class="column-calif">
-      <div class="btn-check">
-        <button>SI</button><button>NO</button><button>N/A</button>
-      </div>
-      <input type="text" class="finput-obs" placeholder="Justificar si es N/A...">
-    </div>
-  </div>
-</div>
-
-<div class="machine-card" style="margin-top:25px; padding:0; overflow:hidden;">
-  <div style="padding: 20px; background: #2563eb; color: white;">
-    <h2 style="font-size:16px; margin:0">BLOQUE II: FUNCIONAMIENTO GENERAL DE LA PLANTA</h2>
-  </div>
-
-  <div class="eval-header">
-    <div>No.</div>
-    <div>Afirmación / Criterio de Cumplimiento</div>
-    <div>Criterio</div>
-    <div>Calificación</div>
-  </div>
-
-  <div class="eval-row">
-    <div>1</div>
-    <div style="font-size: 13px;"><b>Organigrama:</b> Actualizado, con fechas y firmas de aprobación.</div>
-    <div><span class="badge badge-inf">INF</span></div>
-    <div class="column-calif">
-      <div class="btn-check"><button>SI</button><button>NO</button><button>N/A</button></div>
-      <input type="text" class="finput-obs" placeholder="Justificar...">
-    </div>
-  </div>
-
-  <div class="eval-row">
-    <div>4</div>
-    <div style="font-size: 13px;"><b>Lista de productos con registro:</b> Inventario vs productos comercializados.</div>
-    <div><span class="badge badge-i">IMP</span></div>
-    <div class="column-calif">
-      <div class="btn-check"><button>SI</button><button>NO</button><button>N/A</button></div>
-      <input type="text" class="finput-obs" placeholder="Justificar...">
-    </div>
-  </div>
-
-  <div class="eval-row">
-    <div>9</div>
-    <div style="font-size: 13px;"><b>Documentos BPM:</b> Divulgación, capacitaciones, registros y POES.</div>
-    <div><span class="badge badge-i">IMP</span></div>
-    <div class="column-calif">
-      <div class="btn-check"><button>SI</button><button>NO</button><button>N/A</button></div>
-      <input type="text" class="finput-obs" placeholder="Justificar...">
-    </div>
-  </div>
-</div>
-
 <style>
-  .column-calif { display: flex; flex-direction: column; gap: 5px; }
-  .finput-obs { 
-    font-size: 10px; 
-    padding: 4px; 
-    border: 1px solid var(--gray200); 
-    border-radius: 4px;
-    background: #f9fafb;
+  .btn-check {
+    display: flex;
+    gap: 2px;
+    background: #f3f4f6;
+    padding: 3px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
   }
-  .eval-row {
-    display: grid;
-    grid-template-columns: 40px 1fr 100px 220px; /* Ajustado para el campo de texto */
-    padding: 12px 15px;
-    border-bottom: 1px solid #eee;
-    align-items: center;
+  
+  /* Escondemos el radio button real pero dejamos su etiqueta */
+  .btn-check input[type="radio"] {
+    display: none;
   }
-  .eval-header {
-    display: grid;
-    grid-template-columns: 40px 1fr 100px 220px;
-    padding: 10px 15px;
+
+  .btn-check label {
+    flex: 1;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 6px;
     font-size: 11px;
-    font-weight: bold;
+    font-weight: 800;
+    text-align: center;
+    transition: all 0.2s;
+    color: #4b5563;
   }
+
+  /* Colores cuando se selecciona cada opción */
+  .btn-check input[value="SI"]:checked + label { background: #10b981; color: white; }
+  .btn-check input[value="NO"]:checked + label { background: #ef4444; color: white; }
+  .btn-check input[value="NA"]:checked + label { background: #6b7280; color: white; }
+
+  .finput-obs {
+    width: 100%;
+    margin-top: 5px;
+    padding: 6px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 11px;
+    outline: none;
+  }
+  
+  .finput-obs:focus { border-color: #2563eb; background: #fff; }
+</style>
+
+<div class="eval-row" style="display: grid; grid-template-columns: 40px 1fr 80px 220px; align-items: start; gap: 15px; padding: 15px; border-bottom: 1px solid #eee;">
+  <div style="font-weight: bold;">1</div>
+  <div style="font-size: 13px;">
+    <b>Localización y alrededores:</b><br>
+    <span style="color: #666;">Verificar que el establecimiento esté libre de focos de insalubridad y vías pavimentadas.</span>
+  </div>
+  <div><span class="badge badge-i">IMP</span></div>
+  
+  <div class="column-calif">
+    <div class="btn-check">
+      <input type="radio" name="item1" id="i1-si" value="SI">
+      <label for="i1-si">SI</label>
+      
+      <input type="radio" name="item1" id="i1-no" value="NO">
+      <label for="i1-no">NO</label>
+      
+      <input type="radio" name="item1" id="i1-na" value="NA">
+      <label for="i1-na">N/A</label>
+    </div>
+    <input type="text" class="finput-obs" placeholder="Justificación / Observaciones...">
+  </div>
+</div>
 </style>

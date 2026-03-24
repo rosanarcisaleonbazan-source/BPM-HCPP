@@ -98,76 +98,7 @@ input[value="na"]:checked + label { background: #94a3b8; color: white; }
             <span style="background:#ecfdf5; padding:8px; border-radius:8px">📜</span>
             <h2 style="font-size:16px; margin:0">1. Información de Control y Base Legal</h2>
         </div>
-        <div class="grid-3">
-            <div class="fgroup"><label>Fecha Auditoría</label><input type="date" class="finput"></div>
-            <div class="fgroup"><label>Razón Social</label><input type="text" class="finput" placeholder="Empresa..."></div>
-            <div class="fgroup"><label>RUC (13 Dígitos)</label><input type="text" class="finput" maxlength="13"></div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3 style="font-size:14px; color:#064e3b; margin-bottom:20px">LISTADO DE CRITERIOS</h3>
-        
-        <div class="criterio-row">
-            <div style="font-size:13px; font-weight:600; max-width:60%">Se verificó la limpieza del equipo ANTES del inicio de producción.</div>
-            <div class="btn-group">
-                <input type="radio" name="crit1" id="c1-si" value="si" onchange="calc()"><label for="c1-si">Cumple</label>
-                <input type="radio" name="crit1" id="c1-no" value="no" onchange="calc()"><label for="c1-no">No Cumple</label>
-                <input type="radio" name="crit1" id="c1-na" value="na" onchange="calc()"><label for="c1-na">N/A</label>
-            </div>
-        </div>
-
-        <div class="criterio-row">
-            <div style="font-size:13px; font-weight:600; max-width:60%">Los operarios utilizan la indumentaria técnica establecida.</div>
-            <div class="btn-group">
-                <input type="radio" name="crit2" id="c2-si" value="si" onchange="calc()"><label for="c2-si">Cumple</label>
-                <input type="radio" name="crit2" id="c2-no" value="no" onchange="calc()"><label for="c2-no">No Cumple</label>
-                <input type="radio" name="crit2" id="c2-na" value="na" onchange="calc()"><label for="c2-na">N/A</label>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-function calc() {
-    const totalCriterios = 36; // Como dice tu encabezado
-    const si = document.querySelectorAll('input[value="si"]:checked').length;
-    const no = document.querySelectorAll('input[value="no"]:checked').length;
-    const na = document.querySelectorAll('input[value="na"]:checked').length;
-    
-    const aplican = totalCriterios - na;
-    const perc = aplican > 0 ? Math.round((si / aplican) * 100) : 0;
-    const percNo = aplican > 0 ? Math.round((no / aplican) * 100) : 0;
-
-    // Actualizar Banner
-    document.getElementById('val-si').innerText = si;
-    document.getElementById('val-no').innerText = no;
-    document.getElementById('val-na').innerText = na;
-    document.getElementById('val-apl').innerText = aplican;
-    document.getElementById('val-perc').innerText = perc + "%";
-
-    // Actualizar Resumen y Barras
-    document.getElementById('ring-txt').innerText = perc + "%";
-    document.getElementById('txt-si').innerText = perc + "%";
-    document.getElementById('bar-si').style.width = perc + "%";
-    document.getElementById('txt-no').innerText = percNo + "%";
-    document.getElementById('bar-no').style.width = percNo + "%";
-
-    const stamp = document.getElementById('stamp');
-    if(perc >= 80) {
-        stamp.innerText = "APROBADO";
-        stamp.style.color = "#16a34a"; stamp.style.borderColor = "#16a34a";
-    } else if (aplican > 0) {
-        stamp.innerText = "REPROBADO";
-        stamp.style.color = "#ef4444"; stamp.style.borderColor = "#ef4444";
-    }
-}
-</script>
-</body>
-</html>
-
-
-
+  
 
   
 <div class="machine-card">

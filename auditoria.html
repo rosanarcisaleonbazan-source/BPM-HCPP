@@ -3,168 +3,163 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Auditoría BPM & HACCP — Ecuador</title>
+<title>Auditoría BPM & HACCP</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
- --g900:#064e3b;--g800:#065f46;--g700:#047857;--g600:#059669;--g500:#10b981;--g400:#34d399;--g200:#a7f3d0;--g100:#d1fae5;--g50:#ecfdf5;
- --white:#ffffff;--page:#f3f4f6;--font:'Plus Jakarta Sans',sans-serif;--sh:0 4px 6px -1px rgba(0,0,0,0.1);
+:root {
+  --primary-green: #14532d;
+  --bg-page: #f3f4f6;
+  --white: #ffffff;
+  --gray-text: #64748b;
+  --border: #e2e8f0;
+  --font: 'Plus Jakarta Sans', sans-serif;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font);background:var(--page);color:#111827;padding-bottom:100px}
+body { font-family: var(--font); background: var(--bg-page); margin: 0; padding-bottom: 50px; }
 
-/* Barra Superior Estilo Vercel */
-.action-bar{background:var(--g900);padding:12px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;color:white}
-.ab-btn{padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:var(--white);color:var(--g900)}
+/* Barra Superior Verde Oscuro */
+.top-bar { background: #064e3b; padding: 12px 30px; display: flex; justify-content: space-between; align-items: center; color: white; font-size: 12px; }
+.btn-pdf { background: white; color: #064e3b; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 700; cursor: pointer; }
 
-.page{max-width:1060px;margin:0 auto;padding:24px}
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
-/* Header Horizontal con 6 Columnas */
-.hdr-hero{background:linear-gradient(135deg, var(--g900) 0%, var(--g700) 100%);border-radius:20px;padding:32px;color:white;margin-bottom:20px;box-shadow:var(--sh)}
-.stats-grid{display:grid;grid-template-columns:repeat(6, 1fr);gap:10px;margin-top:25px;text-align:center;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px}
-.stat-n{font-size:24px;font-weight:800;display:block}
-.stat-l{font-size:10px;text-transform:uppercase;opacity:0.7}
+/* Dashboard de Estadísticas Horizontal */
+.stats-banner { background: linear-gradient(90deg, #14532d 0%, #166534 100%); border-radius: 20px 20px 0 0; padding: 25px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; color: white; text-align: center; }
+.stat-val { font-size: 24px; font-weight: 800; display: block; }
+.stat-lbl { font-size: 10px; opacity: 0.8; text-transform: uppercase; }
 
-/* Resumen con Anillo y Barras */
-.resumen-card{background:white;border-radius:20px;padding:30px;display:grid;grid-template-columns:1.2fr 2fr 1fr;gap:40px;align-items:center;box-shadow:var(--sh);margin-bottom:30px}
-.cumplimiento-ring{width:120px;height:120px;border:10px solid #f1f5f9;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto}
-.progress-container{width:100%;height:8px;background:#f1f5f9;border-radius:10px;overflow:hidden;margin-top:4px}
-.progress-fill{height:100%;transition:0.4s;width:0%}
+/* Card Blanca de Resumen */
+.summary-card { background: var(--white); border: 1px solid var(--border); border-radius: 0 0 20px 20px; padding: 30px; display: grid; grid-template-columns: 1.2fr 2fr 1fr; gap: 40px; align-items: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 25px; }
 
-/* Tarjetas de Criterios */
-.criterio-card{background:white;border-radius:15px;padding:16px 24px;display:grid;grid-template-columns:40px 1fr 220px;gap:20px;align-items:center;margin-bottom:12px;border:1px solid #e2e8f0}
-.c-num{width:32px;height:32px;background:var(--g50);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--g700);font-size:12px}
+/* Anillo de Cumplimiento */
+.ring-container { width: 120px; height: 120px; border: 10px solid #f1f5f9; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; text-align: center; }
 
-/* Botones Radio Estilo App */
-.btn-check-group{display:flex;background:#f3f4f6;padding:4px;border-radius:10px;gap:4px}
-.btn-check-group input{display:none}
-.btn-check-group label{flex:1;padding:8px;cursor:pointer;border-radius:7px;font-size:10px;font-weight:800;text-align:center;color:#64748b;transition:0.2s}
+/* Barras de Progreso */
+.progress-box { font-size: 13px; color: var(--gray-text); }
+.bar-bg { width: 100%; height: 8px; background: #f1f5f9; border-radius: 10px; overflow: hidden; margin: 4px 0 12px 0; }
+.bar-fill { height: 100%; transition: 0.5s; }
 
-/* Colores de Activo */
+/* Sello de Estado */
+.stamp { border: 2px solid #ef4444; color: #ef4444; padding: 15px; border-radius: 15px; font-weight: 800; font-size: 14px; text-transform: uppercase; text-align: center; }
+
+/* Tarjetas de Datos y Criterios */
+.card { background: var(--white); border-radius: 20px; padding: 25px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 15px; }
+.fgroup label { font-size: 11px; font-weight: 700; color: var(--gray-text); text-transform: uppercase; display: block; margin-bottom: 5px; }
+.finput { width: 100%; padding: 10px; border: 1.5px solid var(--border); border-radius: 10px; font-family: var(--font); font-size: 13px; }
+
+/* Estilo de los criterios con botones */
+.criterio-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #f1f5f9; }
+.btn-group { display: flex; background: #f3f4f6; padding: 4px; border-radius: 10px; gap: 4px; border: 1px solid #d1d5db; }
+.btn-group input { display: none; }
+.btn-group label { padding: 8px 12px; cursor: pointer; border-radius: 7px; font-size: 10px; font-weight: 800; color: #4b5563; transition: 0.2s; }
+
+/* Colores de selección */
 input[value="si"]:checked + label { background: #22c55e; color: white; }
 input[value="no"]:checked + label { background: #ef4444; color: white; }
 input[value="na"]:checked + label { background: #94a3b8; color: white; }
-
-.badge-i{background:#fee2e2;color:#991b1b;padding:2px 6px;border-radius:4px;font-size:9px;font-weight:800}
 </style>
 </head>
 <body>
 
-<div class="action-bar">
- <span>● AUDITORÍA BPM & HACCP · ECUADOR</span>
- <button class="ab-btn" onclick="window.print()">Descargar Reporte PDF</button>
+<div class="top-bar">
+    <div>● AUDITORÍA BPM & HACCP · ECUADOR</div>
+    <button class="btn-pdf">Descargar Reporte PDF</button>
 </div>
 
-<div class="page">
- <div class="hdr-hero">
-    <h1>Checklist de Cumplimiento</h1>
-    <div class="stats-grid">
-      <div><span class="stat-n">3</span><span class="stat-l">Totales</span></div>
-      <div><span class="stat-n" id="val-apl">0</span><span class="stat-l">Aplican</span></div>
-      <div><span class="stat-n" id="val-si" style="color:#4ade80">0</span><span class="stat-l">Cumplen</span></div>
-      <div><span class="stat-n" id="val-no" style="color:#fb7185">0</span><span class="stat-l">No Cumplen</span></div>
-      <div><span class="stat-n" id="val-na" style="color:#94a3b8">0</span><span class="stat-l">No Aplican</span></div>
-      <div><span class="stat-n" id="val-perc">0%</span><span class="stat-l">% Inocuidad</span></div>
+<div class="container">
+    <div class="stats-banner">
+        <div><span class="stat-val">36</span><span class="stat-lbl">Criterios Totales</span></div>
+        <div><span class="stat-val" id="val-apl">0</span><span class="stat-lbl">Aplican</span></div>
+        <div><span class="stat-val" id="val-si" style="color:#4ade80">0</span><span class="stat-lbl">Cumplen</span></div>
+        <div><span class="stat-val" id="val-no" style="color:#fb7185">0</span><span class="stat-lbl">No Cumplen</span></div>
+        <div><span class="stat-val" id="val-na" style="color:#94a3b8">0</span><span class="stat-lbl">No Aplican</span></div>
+        <div><span class="stat-val" id="val-perc">0%</span><span class="stat-lbl">% Cumplimiento</span></div>
     </div>
- </div>
 
- <div class="resumen-card">
-    <div class="cumplimiento-ring">
-        <span style="font-size:10px; color:#94a3b8; text-transform:uppercase">Estatus</span>
-        <span id="ring-perc" style="font-size:20px; font-weight:800">0%</span>
-    </div>
-    <div>
-        <div style="margin-bottom:12px; font-size:12px">
-            <div style="display:flex;justify-content:space-between"><span>🟢 Cumple</span><span id="txt-si">0%</span></div>
-            <div class="progress-container"><div id="bar-si" class="progress-fill" style="background:#22c55e"></div></div>
+    <div class="summary-card">
+        <div class="ring-container">
+            <span style="font-size:10px; color:#94a3b8; text-transform:uppercase; line-height:1">Cumplimiento</span>
+            <span id="ring-txt" style="font-size:20px; font-weight:800; color:#111827">0%</span>
         </div>
-        <div style="font-size:12px">
-            <div style="display:flex;justify-content:space-between"><span>🔴 No Cumple</span><span id="txt-no">0%</span></div>
-            <div class="progress-container"><div id="bar-no" class="progress-fill" style="background:#ef4444"></div></div>
+        <div class="progress-box">
+            <div style="display:flex; justify-content:space-between"><span>🟢 Cumple</span><span id="txt-si">0%</span></div>
+            <div class="bar-bg"><div id="bar-si" class="bar-fill" style="background:#22c55e; width:0%"></div></div>
+            
+            <div style="display:flex; justify-content:space-between"><span>🔴 No Cumple</span><span id="txt-no">0%</span></div>
+            <div class="bar-bg"><div id="bar-no" class="bar-fill" style="background:#ef4444; width:0%"></div></div>
+        </div>
+        <div>
+            <div id="stamp" class="stamp">Sin evaluar</div>
         </div>
     </div>
-    <div style="text-align:center">
-        <div id="stamp" style="border:2px solid #ef4444; color:#ef4444; padding:15px; border-radius:15px; font-weight:800; font-size:14px; text-transform:uppercase">Sin evaluar</div>
-    </div>
- </div>
 
- <h3 style="margin-bottom:15px; color:var(--g900)">4. Higiene y Saneamiento</h3>
+    <div class="card">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:15px">
+            <span style="background:#ecfdf5; padding:8px; border-radius:8px">📜</span>
+            <h2 style="font-size:16px; margin:0">1. Información de Control y Base Legal</h2>
+        </div>
+        <div class="grid-3">
+            <div class="fgroup"><label>Fecha Auditoría</label><input type="date" class="finput"></div>
+            <div class="fgroup"><label>Razón Social</label><input type="text" class="finput" placeholder="Empresa..."></div>
+            <div class="fgroup"><label>RUC (13 Dígitos)</label><input type="text" class="finput" maxlength="13"></div>
+        </div>
+    </div>
 
- <div class="criterio-card">
-    <div class="c-num">4.1</div>
-    <div>
-        <span class="badge-i">IMPRESCINDIBLE</span>
-        <p style="font-size:13px; font-weight:700; margin-top:4px">Limpieza de equipos antes de producción</p>
-    </div>
-    <div class="btn-check-group">
-        <input type="radio" name="c1" id="c1-si" value="si" onchange="calcular()"><label for="c1-si">CUMPLE</label>
-        <input type="radio" name="c1" id="c1-no" value="no" onchange="calcular()"><label for="c1-no">NO CUMPLE</label>
-        <input type="radio" name="c1" id="c1-na" value="na" onchange="calcular()"><label for="c1-na">N/A</label>
-    </div>
- </div>
+    <div class="card">
+        <h3 style="font-size:14px; color:#064e3b; margin-bottom:20px">LISTADO DE CRITERIOS</h3>
+        
+        <div class="criterio-row">
+            <div style="font-size:13px; font-weight:600; max-width:60%">Se verificó la limpieza del equipo ANTES del inicio de producción.</div>
+            <div class="btn-group">
+                <input type="radio" name="crit1" id="c1-si" value="si" onchange="calc()"><label for="c1-si">Cumple</label>
+                <input type="radio" name="crit1" id="c1-no" value="no" onchange="calc()"><label for="c1-no">No Cumple</label>
+                <input type="radio" name="crit1" id="c1-na" value="na" onchange="calc()"><label for="c1-na">N/A</label>
+            </div>
+        </div>
 
- <div class="criterio-card">
-    <div class="c-num">4.2</div>
-    <div>
-        <span class="badge-i">IMPRESCINDIBLE</span>
-        <p style="font-size:13px; font-weight:700; margin-top:4px">Uso de indumentaria técnica completa</p>
+        <div class="criterio-row">
+            <div style="font-size:13px; font-weight:600; max-width:60%">Los operarios utilizan la indumentaria técnica establecida.</div>
+            <div class="btn-group">
+                <input type="radio" name="crit2" id="c2-si" value="si" onchange="calc()"><label for="c2-si">Cumple</label>
+                <input type="radio" name="crit2" id="c2-no" value="no" onchange="calc()"><label for="c2-no">No Cumple</label>
+                <input type="radio" name="crit2" id="c2-na" value="na" onchange="calc()"><label for="c2-na">N/A</label>
+            </div>
+        </div>
     </div>
-    <div class="btn-check-group">
-        <input type="radio" name="c2" id="c2-si" value="si" onchange="calcular()"><label for="c2-si">CUMPLE</label>
-        <input type="radio" name="c2" id="c2-no" value="no" onchange="calcular()"><label for="c2-no">NO CUMPLE</label>
-        <input type="radio" name="c2" id="c2-na" value="na" onchange="calcular()"><label for="c2-na">N/A</label>
-    </div>
- </div>
-
- <div class="criterio-card">
-    <div class="c-num">4.3</div>
-    <div>
-        <span class="badge-i">IMPRESCINDIBLE</span>
-        <p style="font-size:13px; font-weight:700; margin-top:4px">Ausencia de plagas en zona de empaque</p>
-    </div>
-    <div class="btn-check-group">
-        <input type="radio" name="c3" id="c3-si" value="si" onchange="calcular()"><label for="c3-si">CUMPLE</label>
-        <input type="radio" name="c3" id="c3-no" value="no" onchange="calcular()"><label for="c3-no">NO CUMPLE</label>
-        <input type="radio" name="c3" id="c3-na" value="na" onchange="calcular()"><label for="c3-na">N/A</label>
-    </div>
- </div>
 </div>
 
 <script>
-function calcular() {
-    const total = 3; // Ajusta esto según el total de criterios que pongas
-    const sis = document.querySelectorAll('input[value="si"]:checked').length;
-    const nos = document.querySelectorAll('input[value="no"]:checked').length;
-    const nas = document.querySelectorAll('input[value="na"]:checked').length;
+function calc() {
+    const totalCriterios = 36; // Como dice tu encabezado
+    const si = document.querySelectorAll('input[value="si"]:checked').length;
+    const no = document.querySelectorAll('input[value="no"]:checked').length;
+    const na = document.querySelectorAll('input[value="na"]:checked').length;
     
-    const aplican = total - nas;
-    const perc = aplican > 0 ? Math.round((sis / aplican) * 100) : 0;
-    const percNo = aplican > 0 ? Math.round((nos / aplican) * 100) : 0;
+    const aplican = totalCriterios - na;
+    const perc = aplican > 0 ? Math.round((si / aplican) * 100) : 0;
+    const percNo = aplican > 0 ? Math.round((no / aplican) * 100) : 0;
 
-    // Actualizar números superiores
-    document.getElementById('val-si').innerText = sis;
-    document.getElementById('val-no').innerText = nos;
-    document.getElementById('val-na').innerText = nas;
+    // Actualizar Banner
+    document.getElementById('val-si').innerText = si;
+    document.getElementById('val-no').innerText = no;
+    document.getElementById('val-na').innerText = na;
     document.getElementById('val-apl').innerText = aplican;
     document.getElementById('val-perc').innerText = perc + "%";
 
-    // Actualizar Dashboard
-    document.getElementById('ring-perc').innerText = perc + "%";
-    document.getElementById('bar-si').style.width = perc + "%";
+    // Actualizar Resumen y Barras
+    document.getElementById('ring-txt').innerText = perc + "%";
     document.getElementById('txt-si').innerText = perc + "%";
-    document.getElementById('bar-no').style.width = percNo + "%";
+    document.getElementById('bar-si').style.width = perc + "%";
     document.getElementById('txt-no').innerText = percNo + "%";
+    document.getElementById('bar-no').style.width = percNo + "%";
 
-    // Sello de aprobación
     const stamp = document.getElementById('stamp');
-    if (perc >= 80) {
+    if(perc >= 80) {
         stamp.innerText = "APROBADO";
-        stamp.style.color = "#16a34a";
-        stamp.style.borderColor = "#16a34a";
+        stamp.style.color = "#16a34a"; stamp.style.borderColor = "#16a34a";
     } else if (aplican > 0) {
         stamp.innerText = "REPROBADO";
-        stamp.style.color = "#ef4444";
-        stamp.style.borderColor = "#ef4444";
+        stamp.style.color = "#ef4444"; stamp.style.borderColor = "#ef4444";
     }
 }
 </script>

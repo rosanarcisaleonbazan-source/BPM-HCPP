@@ -3654,39 +3654,40 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
     </div>
   </div>
 
-      <div style="background: #eff6ff; padding: 10px 15px; border-bottom: 1px solid #dbeafe;">
-    <h3 style="font-size: 12px; color: #1e40af; margin: 0; text-transform: uppercase;">Retiro de Productos (Recall)</h3>
-  </div>
+    <div style="background: #eff6ff; padding: 10px 15px; border-bottom: 1px solid #dbeafe; font-family: sans-serif;">
+  <h3 style="font-size: 12px; color: #1e40af; margin: 0; text-transform: uppercase;">Retiro de Productos (Recall)</h3>
+</div>
 
+<div style="font-family: sans-serif;">
   <div style="display: grid; grid-template-columns: 40px 1fr 100px 220px; gap:15px; padding:15px; border-bottom:1px solid #f1f5f9; align-items: start;">
     <div style="font-weight:bold; color:#64748b">30</div>
     <div style="font-size:12px;">
       <b>¿La empresa establece y mantiene procedimientos para el retiro de productos del mercado?</b><br>
       <span style="color:#666;">Verificar el POE de Retiro de Producto (Recall).</span>
     </div>
-    <div style="text-align:center"><span class="badge badge-i">IMP</span></div>
+    <div style="text-align:center"><span class="badge badge-i" style="background:#fee2e2; color:#991b1b; padding:4px 8px; border-radius:4px; font-size:10px; font-weight:800;">IMP</span></div>
     <div>
       <div class="btn-check-group">
-        <input type="radio" name="b10_30" id="b10_30-si" value="SI"><label for="b10_30-si">SI</label>
-        <input type="radio" name="b10_30" id="b10_30-no" value="NO"><label for="b10_30-no">NO</label>
-        <input type="radio" name="b10_30" id="b10_30-na" value="NA"><label for="b10_30-na">N/A</label>
+        <input type="radio" name="b10_30" id="b10_30-si" value="SI" onclick="contarRespuestas()"><label for="b10_30-si">SI</label>
+        <input type="radio" name="b10_30" id="b10_30-no" value="NO" onclick="contarRespuestas()"><label for="b10_30-no">NO</label>
+        <input type="radio" name="b10_30" id="b10_30-na" value="NA" onclick="contarRespuestas()"><label for="b10_30-na">N/A</label>
       </div>
-      <input type="text" class="finput-justificar" placeholder="N/A (Justificar)...">
+      <input type="text" class="finput-justificar" style="width:100%; margin-top:5px; font-size:11px;" placeholder="Justificar...">
     </div>
   </div>
 
   <div style="display: grid; grid-template-columns: 40px 1fr 100px 220px; gap:15px; padding:15px; border-bottom:1px solid #f1f5f9; align-items: start;">
     <div style="font-weight:bold; color:#64748b">31</div>
     <div style="font-size:12px;">
-      <b>¿Existe una persona responsable (independiente de Ventas) designada para coordinar el retiro?</b><br>
-      <span style="color:#666;">Verificar POE, registros y cargos de los responsables.</span>
+      <b>¿Existe una persona responsable (independiente de Ventas) para coordinar el retiro?</b><br>
+      <span style="color:#666;">Verificar POE, registros y cargos.</span>
     </div>
     <div style="text-align:center"><span class="badge" style="background:#fef3c7; color:#92400e; border:1px solid #f59e0b; padding:4px 8px; border-radius:4px; font-size:10px; font-weight:800;">NEC</span></div>
     <div>
-      <input type="text" class="finput-justificar" placeholder="Nombre/Cargo Responsable..." style="margin-bottom:5px;">
       <div class="btn-check-group">
-        <input type="radio" name="b10_31" id="b10_31-si" value="SI"><label for="b10_31-si">SI</label>
-        <input type="radio" name="b10_31" id="b10_31-no" value="NO"><label for="b10_31-no">NO</label>
+        <input type="radio" name="b10_31" id="b10_31-si" value="SI" onclick="contarRespuestas()"><label for="b10_31-si">SI</label>
+        <input type="radio" name="b10_31" id="b10_31-no" value="NO" onclick="contarRespuestas()"><label for="b10_31-no">NO</label>
+        <input type="radio" name="b10_31" id="b10_31-na" value="NA" onclick="contarRespuestas()"><label for="b10_31-na">N/A</label>
       </div>
     </div>
   </div>
@@ -3694,36 +3695,62 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
   <div style="display: grid; grid-template-columns: 40px 1fr 100px 220px; gap:15px; padding:15px; border-bottom:1px solid #f1f5f9; align-items: start;">
     <div style="font-weight:bold; color:#64748b">32</div>
     <div style="font-size:12px;">
-      <b>¿Los registros de distribución permiten una rápida acción de retiro?</b><br>
-      <span style="color:#666;">Verificar sistema de despacho con detalle de compradores y zonas.</span>
+      <b>¿Los registros de distribución permiten una rápida acción de retiro?</b>
     </div>
-    <div style="text-align:center"><span class="badge badge-i">IMP</span></div>
+    <div style="text-align:center"><span class="badge badge-i" style="background:#fee2e2; color:#991b1b; padding:4px 8px; border-radius:4px; font-size:10px; font-weight:800;">IMP</span></div>
     <div>
       <div class="btn-check-group">
-        <input type="radio" name="b10_32" id="b10_32-si" value="SI"><label for="b10_32-si">SI</label>
-        <input type="radio" name="b10_32" id="b10_32-no" value="NO"><label for="b10_32-no">NO</label>
-        <input type="radio" name="b10_32" id="b10_32-na" value="NA"><label for="b10_32-na">N/A</label>
+        <input type="radio" name="b10_32" id="b10_32-si" value="SI" onclick="contarRespuestas()"><label for="b10_32-si">SI</label>
+        <input type="radio" name="b10_32" id="b10_32-no" value="NO" onclick="contarRespuestas()"><label for="b10_32-no">NO</label>
+        <input type="radio" name="b10_32" id="b10_32-na" value="NA" onclick="contarRespuestas()"><label for="b10_32-na">N/A</label>
       </div>
-      <input type="text" class="finput-justificar" placeholder="N/A (Justificar)...">
     </div>
   </div>
 
+  <div style="background: #eff6ff; padding: 10px 15px; border-bottom: 1px solid #dbeafe; margin-top:10px;">
+    <h3 style="font-size: 12px; color: #1e40af; margin: 0; text-transform: uppercase;">Mantenimiento</h3>
+  </div>
+
   <div style="display: grid; grid-template-columns: 40px 1fr 100px 220px; gap:15px; padding:15px; border-bottom:1px solid #f1f5f9; align-items: start;">
-    <div style="font-weight:bold; color:#64748b">33</div>
+    <div style="font-weight:bold; color:#64748b">34</div>
     <div style="font-size:12px;">
-      <b>¿Hay informes de conclusión sobre productos retirados entregados a la Autoridad Competente?</b><br>
-      <span style="color:#666;">Verificar registros de cierres de retiro y destino final.</span>
+      <b>¿Los talleres de mantenimiento están situados separadamente de las áreas productivas?</b>
     </div>
-    <div style="text-align:center"><span class="badge badge-i">IMP</span></div>
+    <div style="text-align:center"><span class="badge badge-i" style="background:#fee2e2; color:#991b1b; padding:4px 8px; border-radius:4px; font-size:10px; font-weight:800;">IMP</span></div>
     <div>
       <div class="btn-check-group">
-        <input type="radio" name="b10_33" id="b10_33-si" value="SI"><label for="b10_33-si">SI</label>
-        <input type="radio" name="b10_33" id="b10_33-no" value="NO"><label for="b10_33-no">NO</label>
-        <input type="radio" name="b10_33" id="b10_33-na" value="NA"><label for="b10_33-na">N/A</label>
+        <input type="radio" name="b10_34" id="b10_34-si" value="SI" onclick="contarRespuestas()"><label for="b10_34-si">SI</label>
+        <input type="radio" name="b10_34" id="b10_34-no" value="NO" onclick="contarRespuestas()"><label for="b10_34-no">NO</label>
+        <input type="radio" name="b10_34" id="b10_34-na" value="NA" onclick="contarRespuestas()"><label for="b10_34-na">N/A</label>
       </div>
-      <input type="text" class="finput-justificar" placeholder="N/A (Justificar)...">
     </div>
   </div>
+</div>
+
+<script>
+function contarRespuestas() {
+  const todas = document.querySelectorAll('input[type="radio"]:checked');
+  let si = 0, no = 0, na = 0;
+
+  todas.forEach(input => {
+    if (input.value === "SI") si++;
+    if (input.value === "NO") no++;
+    if (input.value === "NA") na++;
+  });
+
+  // Actualiza los números del Dashboard (asegúrate que los IDs coincidan con el dashboard)
+  document.getElementById('cont-cumple').innerText = si;
+  document.getElementById('cont-nocumple').innerText = no;
+  document.getElementById('cont-na').innerText = na;
+
+  // Cálculo de porcentaje
+  let totalEvaluable = si + no;
+  let porcentaje = totalEvaluable > 0 ? Math.round((si / totalEvaluable) * 100) : 0;
+  
+  document.getElementById('porcentaje-grande').innerText = porcentaje + "%";
+  document.getElementById('barra-cumple').style.width = porcentaje + "%";
+}
+</script>
 
   <div style="background: #eff6ff; padding: 10px 15px; border-bottom: 1px solid #dbeafe;">
     <h3 style="font-size: 12px; color: #1e40af; margin: 0; text-transform: uppercase;">Mantenimiento</h3>

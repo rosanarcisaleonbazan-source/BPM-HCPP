@@ -167,6 +167,22 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
   </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
   
 <div class="machine-card">
   <div class="card-header">
@@ -1766,39 +1782,6 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
     </div>
     <div style="text-align:center"><span class="badge" style="background:#fef3c7; color:#92400e; border:1px solid #f59e0b; padding:4px 8px; border-radius:4px; font-size:10px; font-weight:800;">NEC</span></div>
     <div>
-     <script>
-document.addEventListener('click', function(e) {
-    // Detectamos si se hizo click en un botón de calificación
-    if (e.target.classList.contains('tipo-btn')) {
-        
-        // 1. Lógica visual: Quitar 'active-btn' de los hermanos y ponerlo al actual
-        const parent = e.target.parentElement;
-        parent.querySelectorAll('.tipo-btn').forEach(btn => btn.classList.remove('active-btn'));
-        e.target.classList.add('active-btn');
-
-        // 2. Actualizar Estadísticas
-        actualizarContadores();
-    }
-});
-
-function actualizarContadores() {
-    const totalCriterios = 148;
-    const seleccionadosSi = document.querySelectorAll('.tipo-btn.active-btn.btn-si').length;
-    const seleccionadosNo = document.querySelectorAll('.tipo-btn.active-btn.btn-no').length;
-    const seleccionadosNa = document.querySelectorAll('.tipo-btn.active-btn.btn-na').length;
-    
-    const aplicables = totalCriterios - seleccionadosNa;
-    const porcentaje = aplicables > 0 ? Math.round((seleccionadosSi / aplicables) * 100) : 0;
-
-    // Actualizar los números en la parte superior (IDs de los contenedores)
-    // Nota: Asegúrate de ponerle IDs a tus spans de números en el HTML de arriba
-    document.getElementById('count-cumple').innerText = seleccionadosSi;
-    document.getElementById('count-nocumple').innerText = seleccionadosNo;
-    document.getElementById('count-na').innerText = seleccionadosNa;
-    document.getElementById('count-porcentaje').innerText = porcentaje + '%';
-    document.getElementById('count-aplican').innerText = aplicables;
-}
-</script>
       <div class="btn-check-group">
         <input type="radio" name="b6_9" id="b6_9-si" value="SI"><label for="b6_9-si">SI</label>
         <input type="radio" name="b6_9" id="b6_9-no" value="NO"><label for="b6_9-no">NO</label>

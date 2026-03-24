@@ -2781,6 +2781,22 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
       <input type="text" class="finput-justificar" placeholder="N/A (Justificar)...">
     </div>
   </div>
+    <div style="display: grid; grid-template-columns: 40px 1fr 100px 220px; gap:15px; padding:15px; border-bottom:1px solid #f1f5f9; align-items: start;">
+    <div style="font-weight:bold; color:#64748b">22</div>
+    <div style="font-size:12px;">
+      <b>¿Existe un sistema de prevención de contaminación cruzada durante el pesado y/o medida?</b><br>
+      <span style="color:#666;">Verificar POE de contaminación cruzada por áreas.</span>
+    </div>
+    <div style="text-align:center"><span class="badge" style="background:#fef3c7; color:#92400e; border:1px solid #f59e0b; padding:4px 8px; border-radius:4px; font-size:10px; font-weight:800;">NEC</span></div>
+    <div>
+      <div class="btn-check-group">
+        <input type="radio" name="b9_22" id="b9_22-si" value="SI"><label for="b9_22-si">SI</label>
+        <input type="radio" name="b9_22" id="b9_22-no" value="NO"><label for="b9_22-no">NO</label>
+        <input type="radio" name="b9_22" id="b9_22-na" value="NA"><label for="b9_22-na">N/A</label>
+      </div>
+      <input type="text" class="finput-justificar" placeholder="N/A (Justificar)...">
+    </div>
+  </div>
 <div style="background: #f5f3ff; padding: 10px 15px; border-bottom: 1px solid #ede9fe;">
     <h3 style="font-size: 13px; color: #6d28d9; margin: 0; text-transform: uppercase;">Recepción y Almacenaje de Material de Envase-Empaque</h3>
   </div>
@@ -2788,45 +2804,49 @@ body{font-family:var(--font);background:var(--page);color:var(--gray900);padding
   <div style="display: grid; grid-template-columns: 40px 1fr 100px 220px; gap:15px; padding:15px; border-bottom:1px solid #f1f5f9; align-items: start;">
     <div style="font-weight:bold; color:#64748b">23</div>
     <div style="font-size:12px;">
-      <b>Examen visual en la recepción del material de empaque para verificar daños durante el transporte</b><br>
-      <span style="color:#666;">Verificar el material de empaque y los controles realizados en el momento de su recepción según POE.</span>
+      <b>¿Se realiza examen visual en la recepción del material de empaque para verificar si sufrieron daño durante el transporte?</b><br>
+      <span style="color:#666;">Verificar el material de empaque y los controles que se les realiza en el momento de su recepción de acuerdo a un POE.</span>
     </div>
     <div style="text-align:center"><span class="badge" style="background:#e0f2fe; color:#0369a1; border:1px solid #7dd3fc; padding:4px 8px; border-radius:4px; font-size:10px; font-weight:800;">INF</span></div>
     <div>
       <div class="btn-check-group">
         <input type="radio" name="b9_23" id="b9_23-si" value="SI"><label for="b9_23-si">SI</label>
         <input type="radio" name="b9_23" id="b9_23-no" value="NO"><label for="b9_23-no">NO</label>
+        <input type="radio" name="b9_23" id="b9_23-na" value="NA"><label for="b9_23-na">N/A</label>
       </div>
+      <input type="text" class="finput-justificar" placeholder="N/A (Justificar)...">
     </div>
   </div>
 
   <div style="display: grid; grid-template-columns: 40px 1fr 100px 220px; gap:15px; padding:15px; border-bottom:1px solid #f1f5f9; align-items: start;">
     <div style="font-weight:bold; color:#64748b">24</div>
     <div style="font-size:12px;">
-      <b>Sistema adecuado para control de stock (¿Cuál? ¿Es funcional?)</b><br>
-      <span style="color:#666;">Verificar inventario y uso de sistema FIFO (First In, First Out).</span>
+      <b>¿Existe un sistema adecuado para control de stock? ¿Cuál? ¿Es funcional?</b><br>
+      <span style="color:#666;">Verificar inventario y sistema FIFO.</span>
     </div>
     <div style="text-align:center"><span class="badge" style="background:#fef3c7; color:#92400e; border:1px solid #f59e0b; padding:4px 8px; border-radius:4px; font-size:10px; font-weight:800;">NEC</span></div>
     <div>
-      <input type="text" class="finput-justificar" placeholder="¿Qué sistema usa?..." style="margin-bottom: 5px;">
       <div class="btn-check-group">
         <input type="radio" name="b9_24" id="b9_24-si" value="SI"><label for="b9_24-si">SI</label>
         <input type="radio" name="b9_24" id="b9_24-no" value="NO"><label for="b9_24-no">NO</label>
+        <input type="radio" name="b9_24" id="b9_24-na" value="NA"><label for="b9_24-na">N/A</label>
       </div>
+      <input type="text" class="finput-justificar" placeholder="N/A (Justificar)...">
     </div>
   </div>
 
   <div style="display: grid; grid-template-columns: 40px 1fr 100px 220px; gap:15px; padding:15px; border-bottom:1px solid #f1f5f9; align-items: start;">
     <div style="font-weight:bold; color:#64748b">25</div>
     <div style="font-size:12px;">
-      <b>Área exclusiva o sector cerrado para almacenar etiquetas o rótulos</b><br>
-      <span style="color:#666;">Verificar que el área de almacenamiento de envase y empaque sea adecuada, con acceso restringido y en buenas condiciones.</span>
+      <b>¿Existe un área exclusivo, cerrado o sector para almacenar etiquetas o rótulos?</b><br>
+      <span style="color:#666;">Verificar área de almacenamiento de envase empaque que sea adecuada, de acceso restringido y se encuentre en buenas condiciones.</span>
     </div>
     <div style="text-align:center"><span class="badge badge-i">IMP</span></div>
     <div>
       <div class="btn-check-group">
         <input type="radio" name="b9_25" id="b9_25-si" value="SI"><label for="b9_25-si">SI</label>
         <input type="radio" name="b9_25" id="b9_25-no" value="NO"><label for="b9_25-no">NO</label>
+        <input type="radio" name="b9_25" id="b9_25-na" value="NA"><label for="b9_25-na">N/A</label>
       </div>
       <input type="text" class="finput-justificar" placeholder="N/A (Justificar)...">
     </div>

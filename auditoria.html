@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,152 +8,136 @@
 <style>
 :root{
  --g900:#064e3b;--g800:#065f46;--g700:#047857;--g600:#059669;--g500:#10b981;--g400:#34d399;--g200:#a7f3d0;--g100:#d1fae5;--g50:#ecfdf5;
- --t800:#1e3a8a;--t600:#2563eb;--t400:#60a5fa;--t200:#bfdbfe;--t100:#dbeafe;--gray900:#111827;--gray600:#4b5563;--gray200:#e5e7eb;--gray100:#f3f4f6;--gray50:#f9fafb;
- --white:#ffffff;--page:#f3f4f6;--font:'Plus Jakarta Sans',sans-serif;--r16:16px;--r8:8px;--sh:0 4px 6px -1px rgba(0,0,0,0.1);
+ --white:#ffffff;--page:#f3f4f6;--font:'Plus Jakarta Sans',sans-serif;--sh:0 4px 6px -1px rgba(0,0,0,0.1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font);background:var(--page);color:var(--gray900);padding-bottom:100px}
+body{font-family:var(--font);background:var(--page);color:#111827;padding-bottom:100px}
 
-/* Barra Superior */
+/* Navbar Estilo Vercel */
 .action-bar{background:var(--g900);padding:12px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;color:white}
-.ab-btn{padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:none;transition:0.2s}
-.ab-btn-white{background:var(--white);color:var(--g900)}
+.ab-btn{padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:var(--white);color:var(--g900)}
 
-.page{max-width:1060px;margin:0 auto;padding:32px 22px}
+.page{max-width:1100px;margin:0 auto;padding:24px}
 
-/* Encabezado Principal */
-.hdr{background:linear-gradient(135deg, var(--g900) 0%, var(--g700) 100%);border-radius:20px;padding:32px;color:white;margin-bottom:26px;box-shadow:var(--sh)}
-.hdr-txt h1{font-size:28px;font-weight:800;margin-bottom:8px}
+/* Header Verde con Contadores Horizontales */
+.hdr-hero{background:linear-gradient(135deg, var(--g900) 0%, var(--g700) 100%);border-radius:20px;padding:32px;color:white;margin-bottom:20px;box-shadow:var(--sh)}
+.stats-grid{display:grid;grid-template-columns:repeat(6, 1fr);gap:10px;margin-top:25px;text-align:center;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px}
+.stat-n{font-size:24px;font-weight:800;display:block}
+.stat-l{font-size:10px;text-transform:uppercase;opacity:0.7}
 
-/* Dashboard de Resultados */
-.resumen-container { margin-bottom: 40px; }
-.resumen-header { background: linear-gradient(90deg, #14532d 0%, #166534 100%); padding: 25px; border-radius: 20px 20px 0 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; color: white; text-align: center; }
-.resumen-body { background: white; border: 1px solid #e2e8f0; border-radius: 0 0 20px 20px; padding: 30px; display: grid; grid-template-columns: 1.2fr 2fr 1fr; gap: 40px; align-items: center; box-shadow: var(--sh); }
+/* Tarjeta de Resumen (Anillo y Barras) */
+.resumen-card{background:white;border-radius:20px;padding:30px;display:grid;grid-template-columns:1.2fr 2fr 1fr;gap:40px;align-items:center;box-shadow:var(--sh);margin-bottom:30px}
+.cumplimiento-ring{width:120px;height:120px;border:10px solid #f1f5f9;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto}
+.progress-bar-container{width:100%;height:8px;background:#f1f5f9;border-radius:10px;overflow:hidden;margin-top:4px}
+.progress-fill{height:100%;transition:0.5s}
 
-/* Tarjetas de Criterios Individuales */
-.criterio-card { background: var(--white); border-radius: var(--r16); padding: 24px; border: 1.5px solid var(--gray200); box-shadow: var(--sh); margin-bottom: 15px; display: grid; grid-template-columns: 50px 1fr 220px; gap: 20px; align-items: center; }
-.num-circle { width: 40px; height: 40px; background: var(--g50); color: var(--g700); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; }
-.badge-tipo { font-size: 10px; font-weight: 800; padding: 4px 8px; border-radius: 6px; text-transform: uppercase; margin-bottom: 5px; display: inline-block; }
-.b-imp { background: #fee2e2; color: #dc2626; }
-.b-nec { background: #fef3c7; color: #d97706; }
-.b-inf { background: #e0f2fe; color: #0284c7; }
+/* Formulario Horizontal (Identificación) */
+.form-card{background:white;border-radius:20px;padding:24px;border:1px solid #e2e8f0;margin-bottom:20px}
+.form-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:15px;margin-top:15px}
+.fgroup{display:flex;flex-direction:column;gap:5px}
+.fgroup label{font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase}
+.finput{padding:10px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:13px;outline:none}
 
-/* Botones de Selección */
-.btn-group-custom { display: flex; gap: 5px; background: var(--gray100); padding: 5px; border-radius: 12px; }
-.btn-opt { flex: 1; border: none; padding: 10px; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer; transition: 0.2s; background: transparent; color: var(--gray600); }
-.btn-opt.active-si { background: #22c55e; color: white; }
-.btn-opt.active-no { background: #ef4444; color: white; }
-.btn-opt.active-na { background: #94a3b8; color: white; }
+/* Criterios Estilo Vercel */
+.criterio-card{background:white;border-radius:15px;padding:16px 24px;display:grid;grid-template-columns:50px 1fr 240px;gap:20px;align-items:center;margin-bottom:12px;border:1px solid #e2e8f0}
+.btn-group-opts{display:flex;gap:4px;background:#f1f5f9;padding:4px;border-radius:10px}
+.btn-opt{flex:1;border:none;padding:8px;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;background:transparent;color:#64748b}
+.active-si{background:#22c55e;color:white}
+.active-no{background:#ef4444;color:white}
+.active-na{background:#94a3b8;color:white}
 </style>
 </head>
 <body>
 
 <div class="action-bar">
- <div style="display:flex;align-items:center;gap:10px">
-   <div style="width:8px;height:8px;background:var(--g400);border-radius:50%"></div>
-   <span style="font-size:12px;font-weight:600">AUDITORÍA BPM & HACCP · ECUADOR</span>
- </div>
- <button class="ab-btn ab-btn-white" onclick="window.print()">Descargar Reporte PDF</button>
+ <span style="font-size:12px;font-weight:600">● AUDITORÍA BPM & HACCP · ECUADOR</span>
+ <button class="ab-btn" onclick="window.print()">Descargar Reporte PDF</button>
 </div>
 
 <div class="page">
- <div class="hdr">
-   <div class="hdr-txt">
-     <h1>Checklist de Auditoría BPM / HACCP</h1>
-     <p>Control de cumplimiento técnico basado en la normativa ARCSA 067.</p>
-   </div>
+ <div class="hdr-hero">
+    <h1>Checklist de Cumplimiento</h1>
+    <p style="opacity:0.8">Normativa ARCSA-DE-002-2024-JCGO</p>
+    <div class="stats-grid">
+      <div><span class="stat-n">148</span><span class="stat-l">Totales</span></div>
+      <div><span class="stat-n" id="val-apl">0</span><span class="stat-l">Aplican</span></div>
+      <div><span class="stat-n" id="val-si" style="color:var(--g400)">0</span><span class="stat-l">Cumplen</span></div>
+      <div><span class="stat-n" id="val-no" style="color:#fb7185)">0</span><span class="stat-l">No Cumplen</span></div>
+      <div><span class="stat-n" id="val-na" style="color:#94a3b8">0</span><span class="stat-l">No Aplican</span></div>
+      <div><span class="stat-n" id="val-perc">0%</span><span class="stat-l">% Cumplimiento</span></div>
+    </div>
  </div>
 
- <div class="resumen-container">
-    <div class="resumen-header">
-      <div><div id="total-val" style="font-size:24px; font-weight:800;">148</div><div style="font-size:10px; opacity:0.8;">Criterios</div></div>
-      <div><div id="aplican-val" style="font-size:24px; font-weight:800;">0</div><div style="font-size:10px; opacity:0.8;">Aplican</div></div>
-      <div><div id="cumplen-val" style="font-size:24px; font-weight:800; color:#4ade80;">0</div><div style="font-size:10px; opacity:0.8;">Cumplen</div></div>
-      <div><div id="nocumplen-val" style="font-size:24px; font-weight:800; color:#fb7185;">0</div><div style="font-size:10px; opacity:0.8;">No Cumplen</div></div>
-      <div><div id="na-val" style="font-size:24px; font-weight:800; color:#94a3b8;">0</div><div style="font-size:10px; opacity:0.8;">N/A</div></div>
-      <div><div id="perc-val" style="font-size:24px; font-weight:800;">0%</div><div style="font-size:10px; opacity:0.8;">Inocuidad</div></div>
+ <div class="resumen-card">
+    <div class="cumplimiento-ring">
+        <span style="font-size:10px; color:#94a3b8; text-transform:uppercase">Cumplimiento</span>
+        <span id="ring-perc" style="font-size:20px; font-weight:800">0%</span>
     </div>
-    
-    <div class="resumen-body">
-      <div style="text-align: center;">
-        <div style="width: 120px; height: 120px; border: 10px solid #f1f5f9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-          <span id="circular-perc" style="font-weight: 800; color: #94a3b8; font-size: 16px;">0%</span>
+    <div>
+        <div style="margin-bottom:10px">
+            <div style="display:flex; justify-content:space-between; font-size:12px"><span>🟢 Cumple</span><span id="p-si">0%</span></div>
+            <div class="progress-bar-container"><div id="bar-si" class="progress-fill" style="background:#22c55e; width:0%"></div></div>
         </div>
-      </div>
-      <div style="font-size: 13px; color: #64748b;">
-        <div style="margin-bottom: 12px;"><span>🟢 Cumple</span> <div style="width:100%; height:8px; background:#f1f5f9; border-radius:10px;"><div id="bar-si" style="width:0%; height:100%; background:#22c55e;"></div></div></div>
-        <div style="margin-bottom: 12px;"><span>🔴 No Cumple</span> <div style="width:100%; height:8px; background:#f1f5f9; border-radius:10px;"><div id="bar-no" style="width:0%; height:100%; background:#ef4444;"></div></div></div>
-      </div>
-      <div style="text-align: center;">
-        <div id="status-stamp" style="border: 2px solid #ef4444; color: #ef4444; padding: 15px; border-radius: 15px; font-weight: 800; font-size: 14px; text-transform: uppercase;">SIN EVALUAR</div>
-      </div>
+        <div style="margin-bottom:10px">
+            <div style="display:flex; justify-content:space-between; font-size:12px"><span>🔴 No Cumple</span><span id="p-no">0%</span></div>
+            <div class="progress-bar-container"><div id="bar-no" class="progress-fill" style="background:#ef4444; width:0%"></div></div>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <div id="stamp" style="border:2px solid #ef4444; color:#ef4444; padding:10px; border-radius:12px; font-weight:800; font-size:12px">SIN EVALUAR</div>
     </div>
  </div>
 
- <h3 style="margin-bottom:20px; color:var(--g900)">BLOQUE I: DOCUMENTOS HABILITANTES</h3>
- 
+ <div class="form-card">
+    <div style="display:flex; align-items:center; gap:10px; color:var(--g700); font-weight:700">📋 IDENTIFICACIÓN DE LA PLANTA</div>
+    <div class="form-grid">
+        <div class="fgroup"><label>Nombre de la Empresa</label><input type="text" class="finput" placeholder="Razón Social"></div>
+        <div class="fgroup"><label>RUC (13 Dígitos)</label><input type="text" class="finput" placeholder="0000000000001"></div>
+        <div class="fgroup"><label>Provincia / Cantón</label><input type="text" class="finput" placeholder="Ubicación"></div>
+    </div>
+ </div>
+
+ <h3 style="margin: 20px 0 10px 5px; font-size:16px; color:var(--g900)">SECCIÓN I - DOCUMENTACIÓN</h3>
  <div class="criterio-card">
-    <div class="num-circle">01</div>
+    <div style="width:35px; height:35px; background:var(--g50); border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--g700)">1</div>
     <div>
-        <span class="badge-tipo b-inf">Informativo</span>
-        <p style="font-size:14px; font-weight:700;">Documentos reglamentarios</p>
-        <p style="font-size:12px; color:var(--gray600)">Uso de suelo, medio ambiente, bomberos o LUAE.</p>
+        <p style="font-size:13px; font-weight:700">Documentos reglamentarios vigentes</p>
+        <p style="font-size:11px; color:#64748b">Permisos de suelo, bomberos, ambiente y funcionamiento.</p>
     </div>
-    <div class="btn-group-custom">
-        <button class="btn-opt" onclick="marcar(this, 'si')">CUMPLE</button>
-        <button class="btn-opt" onclick="marcar(this, 'no')">NO</button>
-        <button class="btn-opt" onclick="marcar(this, 'na')">N/A</button>
+    <div class="btn-group-opts">
+        <button class="btn-opt" onclick="update(this, 'si')">CUMPLE</button>
+        <button class="btn-opt" onclick="update(this, 'no')">NO CUMPLE</button>
+        <button class="btn-opt" onclick="update(this, 'na')">N/A</button>
     </div>
  </div>
-
- <div class="criterio-card" style="border-left: 6px solid #ef4444;">
-    <div class="num-circle" style="background:#fee2e2; color:#dc2626;">03</div>
-    <div>
-        <span class="badge-tipo b-imp">Imprescindible (IMP)</span>
-        <p style="font-size:14px; font-weight:700;">Responsable Técnico</p>
-        <p style="font-size:12px; color:var(--gray600)">Título acorde (Médico Veterinario, Químico, etc.) y contrato.</p>
-    </div>
-    <div class="btn-group-custom">
-        <button class="btn-opt" onclick="marcar(this, 'si')">CUMPLE</button>
-        <button class="btn-opt" onclick="marcar(this, 'no')">NO</button>
-        <button class="btn-opt" onclick="marcar(this, 'na')">N/A</button>
-    </div>
- </div>
-
 </div>
 
 <script>
-function marcar(btn, estado) {
+function update(btn, type) {
     const parent = btn.parentElement;
     parent.querySelectorAll('.btn-opt').forEach(b => b.className = 'btn-opt');
-    btn.classList.add('active-' + estado);
-    actualizarDashboard();
-}
-
-function actualizarDashboard() {
+    btn.classList.add('active-' + type);
+    
     const total = 148;
     const sis = document.querySelectorAll('.active-si').length;
     const nos = document.querySelectorAll('.active-no').length;
     const nas = document.querySelectorAll('.active-na').length;
-    
     const aplican = total - nas;
     const perc = aplican > 0 ? Math.round((sis / aplican) * 100) : 0;
-    
-    document.getElementById('cumplen-val').innerText = sis;
-    document.getElementById('nocumplen-val').innerText = nos;
-    document.getElementById('na-val').innerText = nas;
-    document.getElementById('aplican-val').innerText = aplican;
-    document.getElementById('perc-val').innerText = perc + "%";
-    document.getElementById('circular-perc').innerText = perc + "%";
-    
+
+    document.getElementById('val-si').innerText = sis;
+    document.getElementById('val-no').innerText = nos;
+    document.getElementById('val-na').innerText = nas;
+    document.getElementById('val-apl').innerText = aplican;
+    document.getElementById('val-perc').innerText = perc + "%";
+    document.getElementById('ring-perc').innerText = perc + "%";
     document.getElementById('bar-si').style.width = perc + "%";
+    document.getElementById('p-si').innerText = perc + "%";
     
-    const stamp = document.getElementById('status-stamp');
-    if(perc >= 80) { stamp.innerText = "APROBADO"; stamp.style.color = "#16a34a"; stamp.style.borderColor = "#16a34a"; }
-    else if(perc > 0) { stamp.innerText = "EN PROCESO"; stamp.style.color = "#ca8a04"; stamp.style.borderColor = "#ca8a04"; }
+    const stamp = document.getElementById('stamp');
+    if(perc >= 80) { stamp.innerText="APROBADO"; stamp.style.color="#16a34a"; stamp.style.borderColor="#16a34a"; }
 }
 </script>
-
 </body>
 </html>
 

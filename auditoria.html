@@ -13,136 +13,163 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--font);background:var(--page);color:#111827;padding-bottom:100px}
 
-/* Navbar Estilo Vercel */
+/* Barra Superior Estilo Vercel */
 .action-bar{background:var(--g900);padding:12px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;color:white}
 .ab-btn{padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:var(--white);color:var(--g900)}
 
-.page{max-width:1100px;margin:0 auto;padding:24px}
+.page{max-width:1060px;margin:0 auto;padding:24px}
 
-/* Header Verde con Contadores Horizontales */
+/* Header Horizontal con 6 Columnas */
 .hdr-hero{background:linear-gradient(135deg, var(--g900) 0%, var(--g700) 100%);border-radius:20px;padding:32px;color:white;margin-bottom:20px;box-shadow:var(--sh)}
 .stats-grid{display:grid;grid-template-columns:repeat(6, 1fr);gap:10px;margin-top:25px;text-align:center;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px}
 .stat-n{font-size:24px;font-weight:800;display:block}
 .stat-l{font-size:10px;text-transform:uppercase;opacity:0.7}
 
-/* Tarjeta de Resumen (Anillo y Barras) */
+/* Resumen con Anillo y Barras */
 .resumen-card{background:white;border-radius:20px;padding:30px;display:grid;grid-template-columns:1.2fr 2fr 1fr;gap:40px;align-items:center;box-shadow:var(--sh);margin-bottom:30px}
 .cumplimiento-ring{width:120px;height:120px;border:10px solid #f1f5f9;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto}
-.progress-bar-container{width:100%;height:8px;background:#f1f5f9;border-radius:10px;overflow:hidden;margin-top:4px}
-.progress-fill{height:100%;transition:0.5s}
+.progress-container{width:100%;height:8px;background:#f1f5f9;border-radius:10px;overflow:hidden;margin-top:4px}
+.progress-fill{height:100%;transition:0.4s;width:0%}
 
-/* Formulario Horizontal (Identificación) */
-.form-card{background:white;border-radius:20px;padding:24px;border:1px solid #e2e8f0;margin-bottom:20px}
-.form-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:15px;margin-top:15px}
-.fgroup{display:flex;flex-direction:column;gap:5px}
-.fgroup label{font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase}
-.finput{padding:10px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:13px;outline:none}
+/* Tarjetas de Criterios */
+.criterio-card{background:white;border-radius:15px;padding:16px 24px;display:grid;grid-template-columns:40px 1fr 220px;gap:20px;align-items:center;margin-bottom:12px;border:1px solid #e2e8f0}
+.c-num{width:32px;height:32px;background:var(--g50);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--g700);font-size:12px}
 
-/* Criterios Estilo Vercel */
-.criterio-card{background:white;border-radius:15px;padding:16px 24px;display:grid;grid-template-columns:50px 1fr 240px;gap:20px;align-items:center;margin-bottom:12px;border:1px solid #e2e8f0}
-.btn-group-opts{display:flex;gap:4px;background:#f1f5f9;padding:4px;border-radius:10px}
-.btn-opt{flex:1;border:none;padding:8px;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;background:transparent;color:#64748b}
-.active-si{background:#22c55e;color:white}
-.active-no{background:#ef4444;color:white}
-.active-na{background:#94a3b8;color:white}
+/* Botones Radio Estilo App */
+.btn-check-group{display:flex;background:#f3f4f6;padding:4px;border-radius:10px;gap:4px}
+.btn-check-group input{display:none}
+.btn-check-group label{flex:1;padding:8px;cursor:pointer;border-radius:7px;font-size:10px;font-weight:800;text-align:center;color:#64748b;transition:0.2s}
+
+/* Colores de Activo */
+input[value="si"]:checked + label { background: #22c55e; color: white; }
+input[value="no"]:checked + label { background: #ef4444; color: white; }
+input[value="na"]:checked + label { background: #94a3b8; color: white; }
+
+.badge-i{background:#fee2e2;color:#991b1b;padding:2px 6px;border-radius:4px;font-size:9px;font-weight:800}
 </style>
 </head>
 <body>
 
 <div class="action-bar">
- <span style="font-size:12px;font-weight:600">● AUDITORÍA BPM & HACCP · ECUADOR</span>
+ <span>● AUDITORÍA BPM & HACCP · ECUADOR</span>
  <button class="ab-btn" onclick="window.print()">Descargar Reporte PDF</button>
 </div>
 
 <div class="page">
  <div class="hdr-hero">
     <h1>Checklist de Cumplimiento</h1>
-    <p style="opacity:0.8">Normativa ARCSA-DE-002-2024-JCGO</p>
     <div class="stats-grid">
-      <div><span class="stat-n">148</span><span class="stat-l">Totales</span></div>
+      <div><span class="stat-n">3</span><span class="stat-l">Totales</span></div>
       <div><span class="stat-n" id="val-apl">0</span><span class="stat-l">Aplican</span></div>
-      <div><span class="stat-n" id="val-si" style="color:var(--g400)">0</span><span class="stat-l">Cumplen</span></div>
-      <div><span class="stat-n" id="val-no" style="color:#fb7185)">0</span><span class="stat-l">No Cumplen</span></div>
+      <div><span class="stat-n" id="val-si" style="color:#4ade80">0</span><span class="stat-l">Cumplen</span></div>
+      <div><span class="stat-n" id="val-no" style="color:#fb7185">0</span><span class="stat-l">No Cumplen</span></div>
       <div><span class="stat-n" id="val-na" style="color:#94a3b8">0</span><span class="stat-l">No Aplican</span></div>
-      <div><span class="stat-n" id="val-perc">0%</span><span class="stat-l">% Cumplimiento</span></div>
+      <div><span class="stat-n" id="val-perc">0%</span><span class="stat-l">% Inocuidad</span></div>
     </div>
  </div>
 
  <div class="resumen-card">
     <div class="cumplimiento-ring">
-        <span style="font-size:10px; color:#94a3b8; text-transform:uppercase">Cumplimiento</span>
+        <span style="font-size:10px; color:#94a3b8; text-transform:uppercase">Estatus</span>
         <span id="ring-perc" style="font-size:20px; font-weight:800">0%</span>
     </div>
     <div>
-        <div style="margin-bottom:10px">
-            <div style="display:flex; justify-content:space-between; font-size:12px"><span>🟢 Cumple</span><span id="p-si">0%</span></div>
-            <div class="progress-bar-container"><div id="bar-si" class="progress-fill" style="background:#22c55e; width:0%"></div></div>
+        <div style="margin-bottom:12px; font-size:12px">
+            <div style="display:flex;justify-content:space-between"><span>🟢 Cumple</span><span id="txt-si">0%</span></div>
+            <div class="progress-container"><div id="bar-si" class="progress-fill" style="background:#22c55e"></div></div>
         </div>
-        <div style="margin-bottom:10px">
-            <div style="display:flex; justify-content:space-between; font-size:12px"><span>🔴 No Cumple</span><span id="p-no">0%</span></div>
-            <div class="progress-bar-container"><div id="bar-no" class="progress-fill" style="background:#ef4444; width:0%"></div></div>
+        <div style="font-size:12px">
+            <div style="display:flex;justify-content:space-between"><span>🔴 No Cumple</span><span id="txt-no">0%</span></div>
+            <div class="progress-container"><div id="bar-no" class="progress-fill" style="background:#ef4444"></div></div>
         </div>
     </div>
     <div style="text-align:center">
-        <div id="stamp" style="border:2px solid #ef4444; color:#ef4444; padding:10px; border-radius:12px; font-weight:800; font-size:12px">SIN EVALUAR</div>
+        <div id="stamp" style="border:2px solid #ef4444; color:#ef4444; padding:15px; border-radius:15px; font-weight:800; font-size:14px; text-transform:uppercase">Sin evaluar</div>
     </div>
  </div>
 
- <div class="form-card">
-    <div style="display:flex; align-items:center; gap:10px; color:var(--g700); font-weight:700">📋 IDENTIFICACIÓN DE LA PLANTA</div>
-    <div class="form-grid">
-        <div class="fgroup"><label>Nombre de la Empresa</label><input type="text" class="finput" placeholder="Razón Social"></div>
-        <div class="fgroup"><label>RUC (13 Dígitos)</label><input type="text" class="finput" placeholder="0000000000001"></div>
-        <div class="fgroup"><label>Provincia / Cantón</label><input type="text" class="finput" placeholder="Ubicación"></div>
-    </div>
- </div>
+ <h3 style="margin-bottom:15px; color:var(--g900)">4. Higiene y Saneamiento</h3>
 
- <h3 style="margin: 20px 0 10px 5px; font-size:16px; color:var(--g900)">SECCIÓN I - DOCUMENTACIÓN</h3>
  <div class="criterio-card">
-    <div style="width:35px; height:35px; background:var(--g50); border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--g700)">1</div>
+    <div class="c-num">4.1</div>
     <div>
-        <p style="font-size:13px; font-weight:700">Documentos reglamentarios vigentes</p>
-        <p style="font-size:11px; color:#64748b">Permisos de suelo, bomberos, ambiente y funcionamiento.</p>
+        <span class="badge-i">IMPRESCINDIBLE</span>
+        <p style="font-size:13px; font-weight:700; margin-top:4px">Limpieza de equipos antes de producción</p>
     </div>
-    <div class="btn-group-opts">
-        <button class="btn-opt" onclick="update(this, 'si')">CUMPLE</button>
-        <button class="btn-opt" onclick="update(this, 'no')">NO CUMPLE</button>
-        <button class="btn-opt" onclick="update(this, 'na')">N/A</button>
+    <div class="btn-check-group">
+        <input type="radio" name="c1" id="c1-si" value="si" onchange="calcular()"><label for="c1-si">CUMPLE</label>
+        <input type="radio" name="c1" id="c1-no" value="no" onchange="calcular()"><label for="c1-no">NO CUMPLE</label>
+        <input type="radio" name="c1" id="c1-na" value="na" onchange="calcular()"><label for="c1-na">N/A</label>
+    </div>
+ </div>
+
+ <div class="criterio-card">
+    <div class="c-num">4.2</div>
+    <div>
+        <span class="badge-i">IMPRESCINDIBLE</span>
+        <p style="font-size:13px; font-weight:700; margin-top:4px">Uso de indumentaria técnica completa</p>
+    </div>
+    <div class="btn-check-group">
+        <input type="radio" name="c2" id="c2-si" value="si" onchange="calcular()"><label for="c2-si">CUMPLE</label>
+        <input type="radio" name="c2" id="c2-no" value="no" onchange="calcular()"><label for="c2-no">NO CUMPLE</label>
+        <input type="radio" name="c2" id="c2-na" value="na" onchange="calcular()"><label for="c2-na">N/A</label>
+    </div>
+ </div>
+
+ <div class="criterio-card">
+    <div class="c-num">4.3</div>
+    <div>
+        <span class="badge-i">IMPRESCINDIBLE</span>
+        <p style="font-size:13px; font-weight:700; margin-top:4px">Ausencia de plagas en zona de empaque</p>
+    </div>
+    <div class="btn-check-group">
+        <input type="radio" name="c3" id="c3-si" value="si" onchange="calcular()"><label for="c3-si">CUMPLE</label>
+        <input type="radio" name="c3" id="c3-no" value="no" onchange="calcular()"><label for="c3-no">NO CUMPLE</label>
+        <input type="radio" name="c3" id="c3-na" value="na" onchange="calcular()"><label for="c3-na">N/A</label>
     </div>
  </div>
 </div>
 
 <script>
-function update(btn, type) {
-    const parent = btn.parentElement;
-    parent.querySelectorAll('.btn-opt').forEach(b => b.className = 'btn-opt');
-    btn.classList.add('active-' + type);
+function calcular() {
+    const total = 3; // Ajusta esto según el total de criterios que pongas
+    const sis = document.querySelectorAll('input[value="si"]:checked').length;
+    const nos = document.querySelectorAll('input[value="no"]:checked').length;
+    const nas = document.querySelectorAll('input[value="na"]:checked').length;
     
-    const total = 148;
-    const sis = document.querySelectorAll('.active-si').length;
-    const nos = document.querySelectorAll('.active-no').length;
-    const nas = document.querySelectorAll('.active-na').length;
     const aplican = total - nas;
     const perc = aplican > 0 ? Math.round((sis / aplican) * 100) : 0;
+    const percNo = aplican > 0 ? Math.round((nos / aplican) * 100) : 0;
 
+    // Actualizar números superiores
     document.getElementById('val-si').innerText = sis;
     document.getElementById('val-no').innerText = nos;
     document.getElementById('val-na').innerText = nas;
     document.getElementById('val-apl').innerText = aplican;
     document.getElementById('val-perc').innerText = perc + "%";
+
+    // Actualizar Dashboard
     document.getElementById('ring-perc').innerText = perc + "%";
     document.getElementById('bar-si').style.width = perc + "%";
-    document.getElementById('p-si').innerText = perc + "%";
-    
+    document.getElementById('txt-si').innerText = perc + "%";
+    document.getElementById('bar-no').style.width = percNo + "%";
+    document.getElementById('txt-no').innerText = percNo + "%";
+
+    // Sello de aprobación
     const stamp = document.getElementById('stamp');
-    if(perc >= 80) { stamp.innerText="APROBADO"; stamp.style.color="#16a34a"; stamp.style.borderColor="#16a34a"; }
+    if (perc >= 80) {
+        stamp.innerText = "APROBADO";
+        stamp.style.color = "#16a34a";
+        stamp.style.borderColor = "#16a34a";
+    } else if (aplican > 0) {
+        stamp.innerText = "REPROBADO";
+        stamp.style.color = "#ef4444";
+        stamp.style.borderColor = "#ef4444";
+    }
 }
 </script>
 </body>
 </html>
-
-
-
 
 
 
